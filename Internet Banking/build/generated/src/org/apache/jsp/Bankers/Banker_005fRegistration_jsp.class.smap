@@ -1,10 +1,10 @@
 SMAP
-Registration_jsp.java
+Banker_005fRegistration_jsp.java
 JSP
 *S JSP
 *F
-+ 0 Registration.jsp
-Bankers/Registration.jsp
++ 0 Banker_Registration.jsp
+Bankers/Banker_Registration.jsp
 + 1 Navmain.jsp
 Bankers/../File_Source/Navmain.jsp
 + 2 Footermain.jsp

@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class Registration_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class Banker_005fRegistration_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -56,7 +56,7 @@ public final class Registration_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>JSP Page</title>\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../Css/Registration_css.css\">\n");
-      out.write("        <script src=\"../Java_Script/Registration.js\"></script>\n");
+      out.write("        <script src=\"../Java_Script/Banker_Registration.js\"></script>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
@@ -141,7 +141,7 @@ public final class Registration_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>\n");
       out.write("<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>");
       out.write("\n");
-      out.write("        <form name=\"reg\" action=\"banker_registration\" method=\"post\">\n");
+      out.write("        <form name=\"reg\" action=\"../banker_registration\" method=\"post\">\n");
       out.write("            <table align=\"center\" >\n");
       out.write("                <th colspan=\"3\">\n");
       out.write("                    <td>\n");

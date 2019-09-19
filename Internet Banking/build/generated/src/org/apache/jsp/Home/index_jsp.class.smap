@@ -7,12 +7,8 @@ JSP
 Home/index.jsp
 + 1 Navmain.jsp
 Home/../File_Source/Navmain.jsp
-+ 2 Footermain.jsp
-Home/../File_Source/Footermain.jsp
 *L
-1,9:50
-1#1,39:59
-9#0,30:98
-1#2,5:128
-38#0,9:133
+1,9:49
+1#1,80:58
+9#0,57:138
 *E
