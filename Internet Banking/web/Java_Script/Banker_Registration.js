@@ -11,12 +11,13 @@ function validation()
             var zip=document.getElementById('zip');
             var area=document.getElementById('area');
             var number=document.getElementById('number');
-            var email=document.getElementById('email');
+            var em=document.getElementById('email');
             var bname=document.getElementById('bname');
             var aadhar=document.getElementById('aadhar');
             var pan=document.getElementById('pan');
             var password=document.getElementById('password');
             var cpassword=document.getElementById('cpassword');
+          
             var f=0;
             
             
@@ -165,18 +166,22 @@ function validation()
               
             }
             //email id validation
-             if(email.value === "")
-            {
-                email.style.borderColor="red";
-                document.getElementById('email1').innerHTML="Please Enter The Email no";
-                email.focus();
+            
+         
+              if(em.value === "")
+              {
+               
+               em.style.borderColor="red";
+               document.getElementById('email1').innerHTML="Please Enter The Email no";
+                em.focus();
                 f=1;
                 //alert("df");
                 //f=1;
             }
             else
             {
-                email.style.borderColor="green";
+                
+                em.style.borderColor="green";
                 document.getElementById('email1').innerHTML="";
             }
             //Branch Name validation

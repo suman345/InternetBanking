@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "banker_registration", urlPatterns = {"/banker_registration"})
 public class banker_registration extends HttpServlet {
-
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -128,7 +128,7 @@ public class banker_registration extends HttpServlet {
             int x= db.Banker_Registration(banker);
             if(x==1)
             {
-                response.sendRedirect("/Internet_Banking/Bankers/Registration.jsp?msg=done");
+                response.sendRedirect("/Internet_Banking/Web pages/Bankers/Registration.jsp?msg=done");
             }
             else
             {

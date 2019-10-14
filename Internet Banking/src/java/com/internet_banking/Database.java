@@ -10,7 +10,6 @@ package com.internet_banking;
     import java.sql.PreparedStatement;
     import java.sql.ResultSet;
 
-
 public class Database {
     Connection conn;
     ResultSet rs;
@@ -77,5 +76,33 @@ public class Database {
         }
     }
     
-    
+    public int User_Registration(User_Details user){
+        try{
+            if(isConnected())
+            {
+                String Qur="insert into user_registration(ac_type,ac_number,ac_holder_name,branch_code,ifsc_code,email_id,mobile,password) values(?,?,?,?,?,?,?,?)";
+                smt=conn.prepareStatement(Qur);
+                smt.setString(1,user.getAc_type());
+                smt.setString(2,user.getAc_number());
+                smt.setString(3,user.getAc_holder());
+                smt.setString(4,user.getBranch_name());
+                smt.setString(5, user.getIfsc_code());
+                smt.setString(6,user.getEmail());
+                smt.setString(7,user.getMobile_no());
+                smt.setString(8,user.getPassword());
+                smt.execute();
+                return 1;
+                
+            }
+            else
+            {
+                return 0;
+            }
+            
+        }
+        catch(Exception ex)
+        {
+            return -1;
+        }
+    }
 }

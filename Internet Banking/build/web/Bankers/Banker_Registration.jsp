@@ -11,10 +11,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" type="text/css" href="../Css/User_Registration.css">
-        <script src="../Java_Script/Banker_Registration.js"></script>
+       <script src="../Java_Script/Banker_Registration.js"></script>
     </head>
     <body>
-        <%@include file="../File_Source/Navmain.jsp" %>
+        
         <form name="reg" action="../banker_registration" method="post">
             <table align="center" >
                 <th colspan="3">
@@ -25,7 +25,11 @@
                 <tr>
                     <td> First Name:</td>
                     <td><input type="text" name="fname" id="fname"></td>
-                    <td><font color="red" id="fname1"></font></td>
+                   
+                </tr>
+                <tr>
+                    <td></td>
+                     <td><font color="red" id="fname1"></font></td>
                 </tr>
                 <tr>
                     <td> Last Name:</td>
@@ -34,7 +38,7 @@
                 </tr>
                 <tr>
                     <td> Date of Birth:</td>
-                    <td><input type="text"name="dob" id="dob"></td>
+                    <td><input type="date" name="dob" id="dob"></td>
                     <td> <font color="red" id="dob1"></td>
                 </tr>
                 <tr>
