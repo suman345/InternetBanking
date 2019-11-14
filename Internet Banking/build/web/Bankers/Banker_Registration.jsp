@@ -1,125 +1,103 @@
-<%-- 
-    Document   : Registration
-    Created on : Sep 10, 2019, 9:05:07 PM
-    Author     : Suman
---%>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link rel="stylesheet" type="text/css" href="../Css/User_Registration.css">
-       <script src="../Java_Script/Banker_Registration.js"></script>
-    </head>
-    <body>
-        
-        <form name="reg" action="../banker_registration" method="post">
-            <table align="center" >
-                <th colspan="3">
-                    <td>
-                        <center><h1>Registration Form</h1></center>
-                    </td>
-                </th>
-                <tr>
-                    <td> First Name:</td>
-                    <td><input type="text" name="fname" id="fname"></td>
-                   
-                </tr>
-                <tr>
-                    <td></td>
-                     <td><font color="red" id="fname1"></font></td>
-                </tr>
-                <tr>
-                    <td> Last Name:</td>
-                    <td><input type="text"name="lname" id="lname"></td>
-                    <td> <font color="red" id="lname1"></td>
-                </tr>
-                <tr>
-                    <td> Date of Birth:</td>
-                    <td><input type="date" name="dob" id="dob"></td>
-                    <td> <font color="red" id="dob1"></td>
-                </tr>
-                <tr>
-                    <td>Gender:</td>
-                    <td>male<input type="radio" name="gender" value="male" id="gender">
-                    female<input type="radio" name="gender" value="female" id="gender"></td>
-                    <td><font color="red" id="gender1"></td>
-                </tr>
-                
-               <!-- <tr>
-                    <td> Father's Name:</td>
-                    <td><input type="text"name="ftname" id="fathername"></td>
-                    <td> <font color="red" id=fathername1"></td>
-                </tr>-->
-               <tr>
-                   <td>Father Name:</td>
-                   <td> <input type="text" name="fathername" id="fathername"></td>
-                   <td><font color="red" id="fathername1"></td>
-               </tr>
-                <tr>
-                    <td> State:</td>
-                    <td><input type="text"name="state" id="state"></td>
-                    <td> <font color="red" id="state1"></td>
-                </tr>
-                <tr>
-                    <td> district:</td>
-                    <td><input type="text"name="district" id="district"></td>
-                    <td> <font color="red" id="district1"></td>
-                </tr>
-                <tr>
-                    <td> Area:</td>
-                    <td><input type="text"name="area" id="area"></td>
-                    <td> <font color="red" id="area1"></td>
-                </tr>
-                <tr>
-                    <td> Zip Code:</td>
-                    <td><input type="text"name="zip" id="zip"></td>
-                    <td> <font color="red" id="zip1"></td>
-                </tr>
-                <tr>
-                    <td> Mobile Number:</td>
-                    <td><input type="text" name="number" id="number"></td>
-                    <td><font color="red" id="number1"></td>
-                </tr>
-                <tr>
-                   <td>Email:</td>
-                   <td><input type="email" name="email" id="email">
-                   <td><font color="red" id="email1"></td>
-                </tr>
-                 <tr>
-                    <td> Branch Name:</td>
-                    <td><input type="text" name="bname" id="bname"></td>
-                    <td><font color="red" id="bname1"></font></td>
-                </tr>
-                <tr>
-                    <td> AAdhar No:</td>
-                    <td><input type="text" name="aadhar" id="aadhar"></td>
-                    <td><font color="red" id="aadhar1"></font></td>
-                </tr>
-                  <tr>
-                    <td>Pan No:</td>
-                    <td><input type="text" name="pan" id="pan"></td>
-                    <td><font color="red" id="pan1"></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="password" name="password" id="password"></td>
-                    <td><font color="red" id="password1"></td>
-                </tr>
-                 <tr>
-                    <td>Confirm Password:</td>
-                    <td><input type="password" name="cpassword" id="cpassword"></td>
-                    <td><font color="red" id="cpassword1"></td>
-                </tr>
-                
-                <tr>
-                   <td colspan="2" align="center">
-                       <input type="submit" value="submit" onclick="return validation();"></td>
-                </tr>
-            </table>
-       </form>
-        <%@include file="../File_Source/Footermain.jsp"%>
-    </body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="../Css/Banker_css/Banker_Registration.css">
+    <script src="../Java_Script/Banker_js/Banker_Registration.js"></script>
+    
+
+    <title>Banker's Login</title>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" href="#">My Bank</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"><i class="fas fa-hamburger fa-lg"></i></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+      <p id="Query">Already have an account ? </p>
+      <div class="dropdown">
+          <a href="../Login/Login.jsp">
+           <button class="btn btn-md" type="button" id="logButton">
+        Login
+      </button>
+          </a>
+    </div>
+</div>
+</nav>
+    
+      <form action="../Banker_Registration" method="POST" style="max-width:500px;margin:auto; margin-top: 30px; background-color: rgba(0,0,0,0.4); border-style: double; border-color: aliceblue; padding: 5px;">
+      <h1 id="heading">Register Here</h1>
+      <div class="input-container">
+        <input class="input-field" type="text" placeholder="Employee Id" id="EmpId" name="EmpId">
+       
+        </div>
+         <div> <span style="color:aqua;" id="emp1"></span></div>
+         <div class="input-container">
+        <input class="input-field" type="text" placeholder="Branch Name" id="BranchNm" name="BranchNm">
+        </div>
+           <div> <span style="color:aqua;;" id="emp2"></span></div>
+         <div class="input-container">
+        <input class="input-field" type="text" placeholder="Branch Code" id="BranchCd" name="BranchCd">
+        </div>
+             <div> <span style="color:aqua;;" id="emp3"></span></div>
+         <div class="input-container">
+        <input class="input-field" type="text" placeholder="IFSC Code" id="ifsc" name="ifsc">
+        </div>
+               <div> <span style="color:aqua;;" id="emp4"></span></div>
+         <div class="input-container">
+        <input class="input-field" type="text" placeholder="Employee Name" id="EmpNm" name="EmpNm">
+        </div>
+                 <div> <span style="color:aqua;;" id="emp5"></span></div>
+        <div class="input-container">
+          <input class="input-field" type="text" placeholder="Email" name="email" id="email">
+        </div>
+                   <div> <span style="color:aqua;;" id="emp6"></span></div>
+         <div class="input-container">
+        <input class="input-field" type="text" placeholder="Mobile Number" id="MobNo" name="MobNo">
+        </div>
+                     <div> <span style="color:aqua;;" id="emp7"></span></div>
+         <div class="input-container">
+        <input class="input-field" type="text" placeholder="Aadhar No" id="Aadhar" name="Aadhar">
+        </div>
+                       <div> <span style="color:aqua;;" id="emp8"></span></div>
+         <div class="input-container">
+        <input class="input-field" type="text" placeholder="Pan Number" id="Pan" name="Pan">
+        </div>
+                         <div> <span style="color:aqua;;" id="emp9"></span></div>
+<!--        <div class="input-container">
+        <input class="input-field" type="Password" placeholder="Password" id="Password" name="Password">
+        </div>
+                           <div> <span style="color:red;" id="emp10"></span></div>
+        <div class="input-container">
+        <input class="input-field" type="password" placeholder="Comfrim Password" id="Cpassword" name="Cpassword">
+        </div>
+                             <div> <span style="color:red;" id="emp11"></span></div>
+      <div>-->
+<!--        <input type="submit" class="btn" id="RegBtn" value="Register" oncilck="return bankers_validation()">
+         <input type="submit" onclick="return user_validation()">-->
+         <input type="submit" class="btn" id="RegBtn" value="Register" onclick="return bankers_validation();">
+      </div>
+      </form>
+      
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+  </body>
 </html>

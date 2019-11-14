@@ -1,0 +1,18 @@
+SMAP
+BakApprove_jsp.java
+JSP
+*S JSP
+*F
++ 0 BakApprove.jsp
+Admin/BakApprove.jsp
++ 1 Admin_sidepanel.jsp
+Admin/pagefiles/Admin_sidepanel.jsp
++ 2 Admin_navbar.jsp
+Admin/pagefiles/Admin_navbar.jsp
+*L
+1,27:50
+1#1,52:77
+27#0,5:128
+1#2,29:133
+31#0,61:162
+*E

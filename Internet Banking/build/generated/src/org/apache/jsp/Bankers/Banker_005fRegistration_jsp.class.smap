@@ -5,14 +5,6 @@ JSP
 *F
 + 0 Banker_Registration.jsp
 Bankers/Banker_Registration.jsp
-+ 1 Navmain.jsp
-Bankers/../File_Source/Navmain.jsp
-+ 2 Footermain.jsp
-Bankers/../File_Source/Footermain.jsp
 *L
-5,13:50
-1#1,74:63
-17#0,103:137
-1#2,5:240
-119#0,4:245
+1,103:44
 *E

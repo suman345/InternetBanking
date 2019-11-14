@@ -8,18 +8,16 @@ package com.internet_banking;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Suman
+ * @author Sumanpc
  */
-@WebServlet(name = "banker_registration", urlPatterns = {"/banker_registration"})
-public class banker_registration extends HttpServlet {
-    
+public class Banker_Registration extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -33,16 +31,49 @@ public class banker_registration extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet banker_registration</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet banker_registration at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+           String EmpId,BranchNm,BranchCd,ifsc,EmpNm,email,MobNo,Aadhar,Pan,Password;
+           EmpId= request.getParameter("EmpId");
+           BranchNm= request.getParameter("BranchNm");
+           BranchCd= request.getParameter("BranchCd");
+           ifsc= request.getParameter("ifsc");
+           EmpNm= request.getParameter("EmpNm");
+           email= request.getParameter("email");
+           MobNo= request.getParameter("MobNo");
+           Aadhar= request.getParameter("Aadhar");
+           Pan= request.getParameter("Pan");
+           //Password= request.getParameter("Password");
+           Password = String.valueOf(Math.random()).replaceAll("^\\d*\\.","");
+           //Password = Password.substring(Password.indexOf("."));
+           BankersRegistrationGetSet bgs=new BankersRegistrationGetSet();
+           bgs.setEmpId(EmpId);
+           bgs.setBranchNm(BranchNm);
+           bgs.setBranchCd(BranchCd);
+           bgs.setIfsc(ifsc);
+           bgs.setEmpNm(EmpNm);
+           bgs.setEmail(email);
+           bgs.setMobNo(MobNo);
+           bgs.setAadhar(Aadhar);
+           bgs.setPan(Pan);
+           bgs.setPassword(Password);
+           bgs.setType("Banker");
+           Databass d1=new Databass();
+           int x=d1.InsertBankerdetails(bgs);
+           if(x==1)
+           {
+               int y=d1.banker_login(bgs);
+               if(y==1)
+               {
+                    response.sendRedirect("Login/Login.jsp?mas=done");
+               }
+               else
+               {
+                   response.sendRedirect("Bankers/Banker_Registration.jsp?Error=1");
+               }
+           }
+           else
+           {
+               response.sendRedirect("Bankers/Banker_Registration.jsp?Error=2");
+           }
         }
     }
 
@@ -72,7 +103,7 @@ public class banker_registration extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest1(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -84,63 +115,5 @@ public class banker_registration extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    private void processRequest1(HttpServletRequest request, HttpServletResponse response) {
-    try{
-            PrintWriter out =response.getWriter();
-            String first_name,last_name,dob,gender,father_name,state,district,area,zip,mobile_no,email,branch_name,aadhar_no,pan_no,password;
-            first_name=request.getParameter("fname");
-            last_name=request.getParameter("lname");
-            dob=request.getParameter("dob");
-            gender=request.getParameter("gender");
-            father_name=request.getParameter("fathername");
-            state=request.getParameter("state");
-            district=request.getParameter("district");
-            area=request.getParameter("area");
-            zip=request.getParameter("zip");
-            mobile_no=request.getParameter("number");
-            email=request.getParameter("email");
-            branch_name=request.getParameter("bname");
-            aadhar_no=request.getParameter("aadhar");
-            pan_no=request.getParameter("pan");
-            password=request.getParameter("password");
-            
-            
-            Banker_Details banker = new Banker_Details();
-            
-            banker.setFirst_name(first_name);
-            banker.setLast_name(last_name);
-            banker.setDob(dob);
-            banker.setGender(gender);
-            banker.setFather_name(father_name);
-            banker.setState(state);
-            banker.setDistrict(district);
-            banker.setArea(area);
-            banker.setZip(zip);
-            banker.setMobile_no(mobile_no);
-            banker.setEmail(email);
-            banker.setBranch_name(branch_name);
-            banker.setAadher_no(aadhar_no);
-            banker.setPan_no(pan_no);
-            banker.setPassword(password);
-            
-            Database db = new Database();
-            int x= db.Banker_Registration(banker);
-            if(x==1)
-            {
-                response.sendRedirect("/Internet_Banking/Web pages/Bankers/Registration.jsp?msg=done");
-            }
-            else
-            {
-                response.sendRedirect("/Internet_Banking/Bankers/Registration.jsp?msg=error");
-            }
-            
-            
-            
-        }
-        catch(IOException ex){
-                
-    }
-    }
 
 }

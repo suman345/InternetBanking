@@ -1,0 +1,67 @@
+.btn-sh {
+    background-color: rgb(0,0,138);
+    color: aliceblue;
+}
+
+
+
+#dform {
+    background-color: rgba(0,0,138,0.9);
+    padding: 70px;
+    border: 2px solid; 
+    box-shadow: 5px 5px 9px rgba(0, 0, 138, 0.8);
+}
+.input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.inp {
+  width: 100%;
+  height: 40px; 
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  margin-left: 5px;
+    
+}
+.input-field:focus {
+  border: 2px solid blue;
+}
+
+#heading {
+    color: aliceblue;
+    margin-bottom: 45px;
+    margin-left: 10px;
+}
+
+#actype {
+    margin: 5px;
+}
+
+.btn-md {
+    background-color: aliceblue;
+    color: rgb(0,0,138);
+    margin-left: 5px;
+}
+
+.inpc {
+    width: 70%;
+    height: 40px;
+    padding: 10px;
+    outline: none;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+
+#viewBtn {
+    height: 70%;
+    width: 30%;
+    margin-left: 30px;
+    background-color: aliceblue;
+    color: rgb(0,0,138);
+}
+
+

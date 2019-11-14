@@ -1,0 +1,137 @@
+body{
+    background: #0264d6;
+    background: #0264d6; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #0264d6 1%, #1c2b5a 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(1%,#0264d6), color-stop(100%,#1c2b5a)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover,  #0264d6 1%,#1c2b5a 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover,  #0264d6 1%,#1c2b5a 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  #0264d6 1%,#1c2b5a 100%); /* IE10+ */
+    background: radial-gradient(ellipse at center,  #0264d6 1%,#1c2b5a 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0264d6', endColorstr='#1c2b5a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    height:calc(100vh);
+    width:100%;
+}
+
+.navbar-expand-lg {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 25px;
+    border-bottom-style: double;
+    border-bottom-color: aqua;
+}
+
+.nav-link {
+    color: antiquewhite;
+}
+.btn {
+    margin-right: 50px;
+    background-color: blue;
+    color: aliceblue;
+}
+
+
+.dropdown-menu {
+    width: auto;
+    background-color: rgba(0,0,0,0.3);
+    color: aliceblue;
+    border-bottom-color: aliceblue;
+    border-radius: 20px;
+}
+
+.dropdown-item {
+    color: aliceblue;
+}
+.navbar-toggler {
+    background-color: rgba(0,0,0,0.3);
+}
+.navbar-brand {
+    margin-left: 50px;
+}
+
+
+.input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+.fa-envelope {
+  padding: 15px;
+  background: blue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+  border-style: double;
+  border-color: black;
+  border-radius: 10px;
+  max-height: 80px;
+  margin-left: 20px;
+}
+
+.fa-key {
+  padding: 15px;
+  background: blue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+  border-style: double;
+  border-color: black;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+.input-field {
+  width: 80%;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  margin-left: 5px;
+}
+.input-field:focus {
+  border: 2px solid blue;
+}
+
+#Loginbtn {
+  background-color: blue;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 20;
+  opacity: 0.9;
+  border-style: double;
+  border-color: black;
+  border-radius: 10px;
+  margin-left: 392px;
+}
+#Loginbtn:hover{
+  opacity: 8;
+}
+
+#heading {
+    text-align: center;
+    color: aliceblue;
+    margin-bottom: 50px;
+}
+
+#forgetpw {
+    color: aliceblue;
+    font-size: 10px;
+    margin-left: 20px;
+}
+
+.fa-sign-in-alt {
+    padding: 10px;
+}
+
+#signUpQuery {
+    margin-top: 10px;
+    margin-right: 10px;
+    color: aqua;
+}
+
+.fa-hamburger {
+    margin-top: 3px;
+    color: aqua;
+}

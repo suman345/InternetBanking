@@ -1,62 +1,100 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Sep 13, 2019, 1:19:29 PM
-    Author     : Suman
-*/
-.container-fluid{
-    margin-top: 40px;
-}
-#login-dp{
-    min-width: 250px;
-    padding: 14px 14px 0;
-    overflow:hidden;
-    background-color:rgba(255,255,255,.8);
-}
-#login-dp .help-block{
-    font-size:12px    
-}
-#login-dp .bottom{
-    background-color:rgba(255,255,255,.8);
-    border-top:1px solid #ddd;
-    clear:both;
-    padding:14px;
-}
-#login-dp .social-buttons{
-    margin:12px 0    
-}
-#login-dp .social-buttons a{
-    width: 49%;
-}
-#login-dp .form-group {
-    margin-bottom: 10px;
-}
-.btn-fb{
-    color: #fff;
-    background-color:#3b5998;
-}
-.btn-fb:hover{
-    color: #fff;
-    background-color:#496ebc 
-}
-.btn-tw{
-    color: #fff;
-    background-color:#55acee;
-}
-.btn-tw:hover{
-    color: #fff;
-    background-color:#59b5fa;
-}
-@media(max-width:768px){
-    #login-dp{
-        background-color: inherit;
-        color: #fff;
+    body {
+      position: relative; 
     }
-    #login-dp .bottom{
-        background-color: inherit;
-        border-top:0 none;
+   .searchbar{
+    margin-top: 5px;
+    height: 40px;
+    background-color: rgba(0,0,138,0.3);
+    border-radius: 30px;
+    padding: 5px;
     }
+
+    .search_input{
+    color: darkred;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    line-height: 30px;
+    transition: width 0.4s linear;
+    }
+    .searchbar:hover{
+        background-color: aliceblue;
+    }
+
+    .searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 400px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_icon{
+    background: black;
+    color: aliceblue;;
+    }
+
+    .search_icon{
+    height: 30px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    }
+
+
+#LogBtn {
+    width: 50px;
+}
+
+.navbar-expand-sm {
+    background-color: rgb(0,0,138);
+    border: 3px;
+    border-bottom-style: double;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    border-bottom-color: aqua;
+    
+}
+
+.nav-item {
+    margin-left: 10px;
+}
+
+.navbar-brand {
+    margin-left: 30px;
+    color: aqua;
+}
+
+.nav-link {
+    color: aliceblue;
+}
+
+.fas {
+    margin: 10px;
+}
+
+.fab {
+     margin: 10px;
+}
+
+.btn-min-block {
+    margin-right: 30px;
+    margin-top: 15px;
+    width: 80px;
+    height: 35px;
+    background-color: rgba(0,0,138,0.6);
+    color: aliceblue;
+    border-bottom-color: aliceblue;
+}
+.carousel-item {
+  height: 500px;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }

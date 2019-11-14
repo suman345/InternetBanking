@@ -1,0 +1,101 @@
+.btn-sh {
+    background-color: rgb(0,0,138);
+    color: aliceblue;
+}
+
+
+
+#dform {
+    
+}
+
+#dform {
+    background-color: rgba(0,0,138,0.9);
+    padding: 70px;
+    border: 2px solid; 
+    box-shadow: 5px 5px 9px rgba(0, 0, 138, 0.8);
+}
+
+#heading {
+    text-align: center;
+    color: aliceblue;
+    margin-bottom: 20px;
+    margin-left: 8px;
+}
+
+.inp {
+  width: 100%;
+  height: 40px; 
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  margin-left: 5px;
+    
+}
+
+.btn-md {
+    background-color: aliceblue;
+    color: rgb(0,0,138);
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+#viewBtn {
+    background-color: aliceblue;
+    color: rgb(0,0,138);
+    margin-left: 10px;
+}
+
+.forget_part {
+    margin-top: 15px;
+    font-size: 10px;
+}
+
+#fgttxt {
+    color: aqua;
+}
+
+.modal-content {
+    background-color: rgba(0,0,138,0.5);
+    
+}
+
+.modal-title {
+    color: aliceblue;
+}
+.mdl_title {
+    color: rgb(0,0,138);
+}
+
+
+
+
+
+
+
+
+.btn-sm {
+    margin: 15px;
+}
+
+
+
+
+
+
+
+
+
+#acnodisplay {
+    color: rgb(0,0,138);
+}
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 11, 2019, 7:10:43 PM
+    Author     : Sumanpc
+*/
+

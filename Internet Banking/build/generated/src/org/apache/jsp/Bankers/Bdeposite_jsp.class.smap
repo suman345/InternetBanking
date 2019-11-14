@@ -1,0 +1,18 @@
+SMAP
+Bdeposite_jsp.java
+JSP
+*S JSP
+*F
++ 0 Bdeposite.jsp
+Bankers/Bdeposite.jsp
++ 1 Banker_sidepanel.jsp
+Bankers/pagefiles/Banker_sidepanel.jsp
++ 2 Banker_navbar.jsp
+Bankers/pagefiles/Banker_navbar.jsp
+*L
+1,28:50
+1#1,118:78
+28#0,5:195
+1#2,24:200
+32#0,43:224
+*E
