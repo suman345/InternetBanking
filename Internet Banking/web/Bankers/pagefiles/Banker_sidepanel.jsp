@@ -38,7 +38,7 @@
                                     <a href="AcWithCIF.jsp">Existing User</a>
                                 </li>
                                 <li>
-                                    <a href="#">New User</a>
+                                    <a href="AcForNew_user.jsp">New User</a>
                                 </li>
                             </ul>
                         </li>

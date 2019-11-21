@@ -18,7 +18,7 @@
                                 <a class="nav-link" href="#"><i class="fas fa-bell fa-lg"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fas fa-sign-out-alt fa-lg"></i></a>
+                                <a class="nav-link" href="../Logout.jsp"><i class="fas fa-sign-out-alt fa-lg"></i></a>
                             </li>
                         </ul>
                     </div>

@@ -41,8 +41,8 @@ public class Banker_Registration extends HttpServlet {
            MobNo= request.getParameter("MobNo");
            Aadhar= request.getParameter("Aadhar");
            Pan= request.getParameter("Pan");
-           //Password= request.getParameter("Password");
-           Password = String.valueOf(Math.random()).replaceAll("^\\d*\\.","");
+           Password= request.getParameter("email");
+           //Password = String.valueOf(Math.random()).replaceAll("^\\d*\\.","");
            //Password = Password.substring(Password.indexOf("."));
            BankersRegistrationGetSet bgs=new BankersRegistrationGetSet();
            bgs.setEmpId(EmpId);
@@ -74,6 +74,9 @@ public class Banker_Registration extends HttpServlet {
            {
                response.sendRedirect("Bankers/Banker_Registration.jsp?Error=2");
            }
+        }
+        catch(Exception ex){
+            
         }
     }
 

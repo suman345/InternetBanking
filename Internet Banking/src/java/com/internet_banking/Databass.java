@@ -78,12 +78,12 @@ public class Databass {
         {
             if(isConnected())
             {
-                String qur="INSERT INTO`login_details`(`username`,`password`,`type`, `isactive`)values(?,?,?,?)";
+                String qur="INSERT INTO`login_details`(`username`,`password`,`type`, `isActive`)values(?,?,?,?)";
                 smt=conn.prepareStatement(qur);
                 smt.setString(1,bgs.getEmail());
-                smt.setString(2,bgs.getPassword());
+                smt.setString(2,bgs.getEmail());
                 smt.setString(3,bgs.getType());
-                smt.setString(4,"1");
+                smt.setString(4,"0");
                 smt.execute();
                 return 1;
             }
@@ -98,7 +98,46 @@ public class Databass {
             return 0;
         }
     }
-  
+        int insertuser_Details(UserRegistrationGetSet ugs)
+        {
+            try{
+                if( isConnected())
+                {
+                    String qur="INSERT INTO `new_user_registration`( `ac_type`, `first_name`, `last_name`, `father_name`, `dob`, `gender`, `accupation`, `annual_income`, `branch_name`, "
+                            + "`branch_code`, `country`, `state`, `district`, `locality`, `zip_code`, `email`, "
+                            + "`phone_on`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    smt=conn.prepareStatement(qur);
+                    smt.setString(1,ugs.getActype());
+                    smt.setString(2,ugs.getFname());
+                    smt.setString(3,ugs.getLname());
+                    smt.setString(4,ugs.getFtname());
+                    smt.setString(5,ugs.getDob());
+                    smt.setString(6,ugs.getGender());
+                    smt.setString(7,ugs.getOccupation());
+                    smt.setString(8,ugs.getAnnual_income());
+                    smt.setString(9,ugs.getBrname());
+                    smt.setString(10,ugs.getBrcode());
+                    smt.setString(11,ugs.getCountry());
+                    smt.setString(12,ugs.getState());
+                    smt.setString(13,ugs.getDistrict());
+                    smt.setString(14,ugs.getLocality());
+                    smt.setString(15,ugs.getZip_code());
+                    smt.setString(16,ugs.getEmail());
+                    smt.setString(17,ugs.getPhone_no());
+                    smt.execute();
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                return 0;
+            }
+        }
 
     ResultSet CheckLogin(String userid, String password) {
         try
@@ -128,7 +167,7 @@ public class Databass {
         try{
             if(isConnected())
             {
-                String q="SELECT `id`,`employe_name` FROM banker_register ORDER BY `id` ASC";
+                String q="SELECT * FROM login_details where `type`='Banker' ORDER BY `id` ASC";
                 smt=conn.prepareStatement(q);
                 rs=smt.executeQuery();
                         return rs;
@@ -143,6 +182,27 @@ public class Databass {
         
         }
     }
+    public ResultSet Banker_Details(String email)
+    {
+        try{
+            if(isConnected())
+            {
+                String qur="SELECT * FROM `banker_register` WHERE email=?";
+                smt=conn.prepareStatement(qur);
+                smt.setString(1,email);
+                rs=smt.executeQuery();
+                return rs;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        catch(Exception ex)
+        {
+            return null;
+        }
+    }    
     public ResultSet BankerApprove()
     {
         try{
@@ -182,6 +242,48 @@ public class Databass {
         catch(Exception ex)
         {
             return null;
+        }
+    }
+    public void activateBanker(String email)
+    {
+        try{
+            if(isConnected())
+            {
+                String qur="UPDATE `login_details` SET `isActive`='1' WHERE `username`=?";
+                smt=conn.prepareStatement(qur);
+                smt.setString(1,email);
+                smt.execute();
+//                return 1;
+            }
+            else
+            {
+//                return 0;
+            }
+        }
+        catch(Exception ex)
+        {
+//            return 0;
+        }
+    }
+    public void rejectBanker(String email)
+    {
+        try{
+            if(isConnected())
+            {
+                String qur="UPDATE `login_details` SET `isActive`='0' WHERE `username`=? and `type`='Banker'";
+                smt=conn.prepareStatement(qur);
+                smt.setString(1, email);
+                smt.execute();
+//                return 1;
+            }
+            else
+            {
+//                return 0;
+            }
+        }
+        catch(Exception ex)
+        {
+//            return 0;
         }
     }
 

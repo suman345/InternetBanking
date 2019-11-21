@@ -1,5 +1,28 @@
 
 <html lang="en">
+    <%
+        try{
+            String type=session.getAttribute("type").toString();
+            if(type.equals("Banker"))
+            {
+                response.sendRedirect("Bankers/Banker_Home.jsp");
+            }
+            else
+            {
+                if(type.equals("admin"))
+                {
+                    response.sendRedirect("Admin/Adminhome.jsp");
+                }
+                else
+                {
+                    
+                }
+            }
+        }
+        catch(Exception ex){
+            
+        }
+        %>
   <head>
   	<title>Internet Banking</title>
     <!-- Required meta tags -->

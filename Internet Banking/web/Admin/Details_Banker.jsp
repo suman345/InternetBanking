@@ -1,3 +1,6 @@
+
+<%@page import="java.sql.ResultSet"%>
+<%@page import="com.internet_banking.Databass"%>
 <html>
 
 <head>
@@ -11,8 +14,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <!-- Our Custom CSS -->
-      <link rel="stylesheet" href="../Css/Admin_css/Adminhome.css">
-      <link rel="stylesheet" href="../Css/Admin_css/Admin_Dashboard.css">
+    <link rel="stylesheet" href="../Css/Admin_css/Adminhome.css">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -30,55 +32,68 @@
         <div id="content">
         <%@include file="pagefiles/Admin_navbar.jsp" %>
         <!-- Admin_navbar End -->
-            <div class="card">
+                 <div class="card">
            <table class="table table-hover">
-               <thead>
+              <thead>
                  <tr>
-                   <th scope="col">ID</th>
-                   <th scope="col">Name</th>
-                   <th scope="col">Applicant Type</th>
-                   <th scope="col">Edit List </th>
-                   <th scope="col">Details</th>
+                   
+                   <th scope="col">Employe Id</th>
+                   <th scope="col">Branch Name</th>
+                   <th scope="col">Branch Code </th>
+                   <th scope="col">IFSE CODE</th>
+                   <th scope="col">Employe Name</th>
+                   <th scope="col">Email</th>
+                   <th scope="col">Phone NO</th>
+                   <th scope="col">Aadher NO</th>
+                   <th scope="col">Pan NO</th>
+                   <th scope="col">Update</th>
                  </tr>
+                 <tr>
+                     <%
+                         try{
+                             String email=request.getParameter("Details").toString();
+                             ResultSet rs=new Databass().Banker_Details(email);
+                             while(rs.next())
+                             {
+                                     
+                         
+                         %>
+                     <td><%= rs.getString("employee_id")%></td>
+                     <td><%= rs.getString("branch_name")%></td>
+                     <td><%= rs.getString("branch_code")%></td>
+                     <td><%= rs.getString("ifsc_code")%></td>
+                     <td><%= rs.getString("employe_name")%></td>
+                     <td><%= rs.getString("email")%></td>
+                     <td><%= rs.getString("moblie_number")%></td>
+                     <td><%= rs.getString("aadhar_no")%></td>
+                     <td><%= rs.getString("pan_number")%></td>
+                        <td><a class="btn btn-sm btn-info" href="#"><i class="fas fa-info-circle"></i> Details</a> </td>
+                 </tr>    
+                 <%
+                     }
+}
+catch(Exception ex){}
+%>
                </thead>
                <tbody>
               <tr>
-                <th scope="row">1</th>
+<!--                <th scope="row">1</th>
                 <td>name 1</td>
                 <td>Employee</td>
                 <td>
                     <a class="btn btn-sm btn-primary" href="#"><i class="far fa-edit"></i> Approve</a>
                     <a class="btn btn-sm btn-danger" href="#"><i class="fas fa-trash-alt"></i> Reject</a>    
                 </td>
-                <td><a class="btn btn-sm btn-info" href="#"><i class="fas fa-info-circle"></i> Details</a> </td>
+                <td><a class="btn btn-sm btn-info" href="#"><i class="fas fa-info-circle"></i> Details</a> </td>-->
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>name 2</td>
-                <td>Customer</td>
-                <td>
-                    <a class="btn btn-sm btn-primary" href="#"><i class="far fa-edit"></i> Approve</a>
-                    <a class="btn btn-sm btn-danger" href="#"><i class="fas fa-trash-alt"></i> Reject</a>    
-                </td>
-                <td><a class="btn btn-sm btn-info" href="#"><i class="fas fa-info-circle"></i> Details</a> </td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>name 3</td>
-                  <td>Employee</td>
-                <td>       
-                    <a class="btn btn-sm btn-primary" href="#"><i class="far fa-edit"></i> Approve</a>
-                    <a class="btn btn-sm btn-danger" href="#"><i class="fas fa-trash-alt"></i> Reject</a> 
-                </td>
-                <td><a class="btn btn-sm btn-info" href="#"><i class="fas fa-info-circle"></i> Details</a> </td>
-              </tr>
+         
+             
+             
             </tbody>
           </table>
     </div>
-          </div>
         </div>
-   
-    
+    </div>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->

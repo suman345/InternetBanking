@@ -30,18 +30,18 @@
         <div id="content">
         <%@include file="pagefiles/Admin_navbar.jsp" %>
         <!-- Admin_navbar End -->
-         <div class="card">
-        <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Applicant Type</th>
-                <th scope="col">Edit List </th>
-                <th scope="col">Details</th>
-              </tr>
-            </thead>
-            <tbody>
+            <div class="card">
+           <table class="table table-hover">
+               <thead>
+                 <tr>
+                   <th scope="col">ID</th>
+                   <th scope="col">Name</th>
+                   <th scope="col">Applicant Type</th>
+                   <th scope="col">Edit List </th>
+                   <th scope="col">Details</th>
+                 </tr>
+               </thead>
+               <tbody>
               <tr>
                 <th scope="row">1</th>
                 <td>name 1</td>

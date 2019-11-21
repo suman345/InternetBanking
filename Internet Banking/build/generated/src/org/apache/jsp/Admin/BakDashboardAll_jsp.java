@@ -3,6 +3,8 @@ package org.apache.jsp.Admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import com.internet_banking.Databass;
+import java.sql.ResultSet;
 
 public final class BakDashboardAll_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -47,24 +49,43 @@ public final class BakDashboardAll_jsp extends org.apache.jasper.runtime.HttpJsp
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
+      out.write("\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("         <meta charset=\"utf-8\">\n");
       out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
       out.write("    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n");
       out.write("\n");
-      out.write("    <title>Collapsible sidebar using Bootstrap 4</title>\n");
+      out.write("    <title>Internet Banking</title>\n");
       out.write("\n");
-      out.write("    <!-- Bootstrap CSS CDN -->\n");
+      out.write("     Bootstrap CSS CDN \n");
       out.write("    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css\" integrity=\"sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4\" crossorigin=\"anonymous\">\n");
       out.write("    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css\">\n");
-      out.write("    <!-- Our Custom CSS -->\n");
-      out.write("    <link rel=\"stylesheet\" href=\"../Css/Adminhome.css\">\n");
+      out.write("    Boostrap Datatable\n");
+      out.write("    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css\">\n");
+      out.write("    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css\">\n");
       out.write("\n");
-      out.write("    <!-- Font Awesome JS -->\n");
-      out.write("    <script defer src=\"https://use.fontawesome.com/releases/v5.0.13/js/solid.js\" integrity=\"sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ\" crossorigin=\"anonymous\"></script>\n");
-      out.write("    <script defer src=\"https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js\" integrity=\"sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY\" crossorigin=\"anonymous\"></script>\n");
-      out.write("    \n");
+      out.write("    Boostrap Datatable end\n");
+      out.write("     Our Custom CSS \n");
+      out.write("\n");
+      out.write("     Font Awesome JS \n");
+      out.write("    <script defer src=\"https://use.fontawesome.com/releases/v5.0.13/js/solid.js\"></script>\n");
+      out.write("    <script defer src=\"https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js\"><script>\n");
+      out.write("  \n");
+      out.write("      <link rel=\"stylesheet\" href=\"../Css/Admin_css/Adminhome.css\">\n");
+      out.write("      <script>\n");
+      out.write("      function Activate(val)\n");
+      out.write("        {\n");
+      out.write("            var loc=\"ModifyBanket.jsp?activate=\"+val;\n");
+      out.write("            window.location=loc;\n");
+      out.write("        }\n");
+      out.write("        function Reject(val)\n");
+      out.write("        {\n");
+      out.write("            var loc=\"ModifyBanket.jsp?Reject=\"+val;\n");
+      out.write("            window.location=loc;\n");
+      out.write("        }\n");
+      out.write("    </script>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        \n");
@@ -90,10 +111,10 @@ public final class BakDashboardAll_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("                            <a href=\"BakDashboardAll.jsp\">All</a>\n");
       out.write("                        </li>\n");
       out.write("                        <li>\n");
-      out.write("                            <a href=\"#\">Approved</a>\n");
+      out.write("                            <a href=\"BakDashboardApp.jsp\">Approved</a>\n");
       out.write("                        </li>\n");
       out.write("                        <li>\n");
-      out.write("                            <a href=\"#\">Rejected</a>\n");
+      out.write("                            <a href=\"BakDashboardRej.jsp\">Rejected</a>\n");
       out.write("                        </li>\n");
       out.write("                    </ul>\n");
       out.write("                </li>\n");
@@ -159,47 +180,65 @@ public final class BakDashboardAll_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("\n");
       out.write("        <!-- Admin_navbar End -->\n");
       out.write("         <div class=\"card\">\n");
-      out.write("        <table class=\"table table-hover\">\n");
+      out.write("        <table class=\"table table-hover\" id=\"suman\">\n");
       out.write("            <thead>\n");
       out.write("              <tr>\n");
       out.write("                <th scope=\"col\">ID</th>\n");
-      out.write("                <th scope=\"col\">Name</th>\n");
+      out.write("                <th scope=\"col\">Email</th>\n");
       out.write("                <th scope=\"col\">Applicant Status</th>\n");
       out.write("                <th scope=\"col\">Edit List </th>\n");
       out.write("                <th scope=\"col\">Details</th>\n");
       out.write("              </tr>\n");
       out.write("            </thead>\n");
       out.write("            <tbody>\n");
+      out.write("            ");
+
+                try{
+                     ResultSet rs=new Databass().BankerDetail();
+                while(rs.next())
+                {
+            
+      out.write("\n");
       out.write("              <tr>\n");
-      out.write("                <th scope=\"row\">1</th>\n");
-      out.write("                <td>name 1</td>\n");
-      out.write("                <td>active</td>\n");
+      out.write("                  <th scope=\"row\">");
+      out.print(rs.getString("id"));
+      out.write("</th>\n");
+      out.write("                <td>");
+      out.print(rs.getString("username"));
+      out.write("</td>\n");
+      out.write("                <td>");
+      out.print((rs.getString("isActive").equals("1"))? "Approved":"Pending");
+      out.write("</td>\n");
       out.write("\t\t\t\t<td>\n");
-      out.write("                    <a class=\"btn btn-sm btn-primary\" href=\"#\"><i class=\"far fa-edit\"></i> Approve</a>\n");
-      out.write("                    <a class=\"btn btn-sm btn-danger\" href=\"#\"><i class=\"fas fa-trash-alt\"></i> Reject</a>    \n");
+      out.write("                                    ");
+if(!rs.getString("isActive").equals("1"))
+                                    {
+      out.write("\n");
+      out.write("                                        <a class=\"btn btn-sm btn-primary\" onClick=\"Activate('");
+      out.print(rs.getString("username"));
+      out.write("')\"><i class=\"far fa-edit\"></i> Activate</a>\n");
+      out.write("                                    ");
+}
+                                    else
+                                    {
+      out.write("\n");
+      out.write("                                        <a class=\"btn btn-sm btn-danger\" onClick=\"Reject('");
+      out.print(rs.getString("username"));
+      out.write("')\"><i class=\"fas fa-trash-alt\"></i> Reject</a>\n");
+      out.write("                                    ");
+}
+      out.write("\n");
       out.write("                </td>\n");
       out.write("                <td><a class=\"btn btn-sm btn-info\" href=\"#\"><i class=\"fas fa-info-circle\"></i> Details</a> </td>\n");
       out.write("              </tr>\n");
-      out.write("              <tr>\n");
-      out.write("                <th scope=\"row\">2</th>\n");
-      out.write("                <td>name 2</td>\n");
-      out.write("                <td>rejected</td>\n");
-      out.write("                <td>\n");
-      out.write("                    <a class=\"btn btn-sm btn-primary\" href=\"#\"><i class=\"far fa-edit\"></i> Approve</a>\n");
-      out.write("                    <a class=\"btn btn-sm btn-danger\" href=\"#\"><i class=\"fas fa-trash-alt\"></i> Reject</a>    \n");
-      out.write("                </td>\n");
-      out.write("                <td><a class=\"btn btn-sm btn-info\" href=\"#\"><i class=\"fas fa-info-circle\"></i> Details</a> </td>\n");
-      out.write("              </tr>\n");
-      out.write("              <tr>\n");
-      out.write("                <th scope=\"row\">3</th>\n");
-      out.write("                <td>name 3</td>\n");
-      out.write("                  <td>active</td>\n");
-      out.write("\t\t\t\t  <td>\n");
-      out.write("                    <a class=\"btn btn-sm btn-primary\" href=\"#\"><i class=\"far fa-edit\"></i> Approve</a>      \n");
-      out.write("                   <a class=\"btn btn-sm btn-danger\" href=\"#\"><i class=\"fas fa-trash-alt\"></i> Reject</a> \n");
-      out.write("                </td>\n");
-      out.write("                <td><a class=\"btn btn-sm btn-info\" href=\"#\"><i class=\"fas fa-info-circle\"></i> Details</a> </td>\n");
-      out.write("              </tr>\n");
+      out.write("              ");
+
+                 
+                  }
+                }catch(Exception a)
+                {}
+               
+      out.write("\n");
       out.write("            </tbody>\n");
       out.write("          </table>\n");
       out.write("    </div>\n");
@@ -207,11 +246,11 @@ public final class BakDashboardAll_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("        </div>\n");
       out.write("   \n");
       out.write("    \n");
-      out.write("    <!-- jQuery CDN - Slim version (=without AJAX) -->\n");
+      out.write("   jQuery CDN - Slim version (=without AJAX) \n");
       out.write("    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>\n");
-      out.write("    <!-- Popper.JS -->\n");
+      out.write("     Popper.JS \n");
       out.write("    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js\" integrity=\"sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ\" crossorigin=\"anonymous\"></script>\n");
-      out.write("    <!-- Bootstrap JS -->\n");
+      out.write("     Bootstrap JS \n");
       out.write("    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js\" integrity=\"sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm\" crossorigin=\"anonymous\"></script>\n");
       out.write("\n");
       out.write("    <script type=\"text/javascript\">\n");
@@ -222,8 +261,17 @@ public final class BakDashboardAll_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("            });\n");
       out.write("        });\n");
       out.write("    </script>\n");
+      out.write("    <script src=\"https://code.jquery.com/jquery-3.3.1.js\"></script>\n");
+      out.write("\t<script src=\"https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js\"></script>\n");
+      out.write("\t<script src=\"https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js\"></script>\n");
+      out.write("\t<script>\n");
+      out.write("\t\t$(document).ready(function() {\n");
+      out.write("\t\t\t$('#suman').DataTable();\n");
+      out.write("\t\t} );\n");
+      out.write("\t</script>\n");
+      out.write("    \n");
       out.write("    </body>\n");
-      out.write("</html>    ");
+      out.write("</html>   ");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
