@@ -13,7 +13,12 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <!-- Our Custom CSS -->
+    <!-- datatable start-->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+<!--
+    Boostrap Datatable end
+     Our Custom CSS -->
    <link rel="stylesheet" href="../Css/Admin_css/Adminhome.css">
 
     <!-- Font Awesome JS -->
@@ -33,7 +38,7 @@
         <%@include file="pagefiles/Admin_navbar.jsp" %>
         <!-- Admin_navbar End -->
         <div class="card">
-        <table class="table table-hover">
+        <table class="table table-hover" id="suman">
             <thead>
               <tr>
                 <th scope="col">ID</th>
@@ -83,6 +88,15 @@
             });
         });
     </script>
+     <!-- java script link start-->
+     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#suman').DataTable();
+		} );
+	</script>
 </body>
 
 </html>

@@ -6,16 +6,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>New user</title>
-    </head>
-    <body>
-       <!DOCTYPE html>
-<html>
-<head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -60,24 +56,28 @@
                                             <option value="savings">Savings</option>
                                             <option value="current">Current</option>
                                          </select>
+                                            <div> <span style="color:red;" id="cus1"></span></div>
                                         </div>
-                                        <div> <span style="color:red;" id="cus1"></span></div>
+                                        
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="First Name *" id="fname" name="fname" value="">
+                                            <div> <span style="color:red;" id="cus2"></span></div>
                                         </div>
-                                        <div> <span style="color:red;" id="cus2"></span></div>
+                                        
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Last Name *" id="lname" name="lname" value="">
+                                             <div> <span style="color:red;" id="cus3"></span></div>
                                         </div>
-                                        <div> <span style="color:red;" id="cus3"></span></div>
+                                       
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Father's Name *" id="ftname" name="ftname" value="">
+                                             <div> <span style="color:red;" id="cus4"></span></div>
                                         </div>
-                                        <div> <span style="color:red;" id="cus4"></span></div>
+                                       
                                         <div class="form-group">
                                             <input type="date" class="form-control"  placeholder="Date of Birth *" value=""name="dob" id="dob">
-                                        </div>
-                                        <div> <span style="color:red;" id="cus5"></span></div>
+                                        </div><div> <span style="color:red;" id="cus5"></span></div>
+                                        
                                         <div class="form-group">
                                             <div class="maxl">
                                                 <label class="radio inline"> 
@@ -96,59 +96,71 @@
                                         </div>
                                          <div class="form-group">
                                             <input type="text" class="form-control"  placeholder="Applicant's Occupation *" value="" name="occupation" id="occupation">
+                                            <div> <span style="color:red;" id="cus7"></span></div>
                                         </div>
-                                        <div> <span style="color:red;" id="cus7"></span></div>
+                                        
                                          <div class="form-group">
                                             <input type="text" class="form-control"  placeholder="Annual Income *" value="" name="annual_income" id="annual_income">
+                                            <div> <span style="color:red;" id="cus8"></span></div>
+                                            
                                         </div>
-                                        <div> <span style="color:red;" id="cus8"></span></div>
+                                        
                                     </div>
                                     <div class="col-md-6">
                                           <div class="form-group">
                                          <input type="text" class="form-control" placeholder="Branch Name *" id="brname" name="brname" value="">  
+                                         <div> <span style="color:red;" id="cus9"></span></div>
                                           </div>
-                                        <div> <span style="color:red;" id="cus9"></span></div>
+                                        
                                         <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Branch Code *" id="brcode" name="brcode" value="">  
-                                        </div>
                                         <div> <span style="color:red;" id="cus10"></span></div>
+                                        </div>
+                                        
                                         <div class="form-group">
                                            <select class="form-control" name="country" id="country" size="1">
                                                <option value="" disabled="" selected="">Select your Country</option>
                                             <option value="INDIA" >INDIA</option>
                                             </select>
+                                            <div> <span style="color:red;" id="cus11"></span></div>
                                             </div>
-                                        <div> <span style="color:red;" id="cus11"></span></div>
+                                        
                                             <div class="form-group">
                                             <select class="form-control" name="state" id="state" size="1">
                                                 <option value="" disabled="" selected="">Select your State</option>
                                                 <option value="WEST BENGAL">WEST BENGAL</option>
                                             </select>
+                                                <div> <span style="color:red;" id="cus12"></span></div>
                                              </div>
-                                        <div> <span style="color:red;" id="cus12"></span></div>
+                                        
                                             <div class="form-group">
                                             <select class="form-control" name="district" id="district" size="1">
                                                 <option value="" disabled="" selected="">Select your District </option>
                                             <option value="HOWRAH">HOWRAH</option>
                                             </select>
+                                                <div> <span style="color:red;" id="cus13"></span></div>
                                         </div>
-                                        <div> <span style="color:red;" id="cus13"></span></div>
+                                        
                                          <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Locality *" name="locality" id="locality" value="">
+                                            <div> <span style="color:red;" id="cus14"></span></div>
                                         </div>
-                                        <div> <span style="color:red;" id="cus14"></span></div>
+                                        
                                          <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Zip Code *" name="zip_code" id="zip_code" value="">
+                                              <div> <span style="color:red;" id="cus15"></span></div>
                                         </div>
-                                        <div> <span style="color:red;" id="cus15"></span></div>
+                                      
                                         <div class="form-group">
                                             <input type="email" class="form-control" placeholder="Email *"name="email" id="email" value="">
+                                            <div> <span style="color:red;" id="cus16"></span></div>
                                         </div>
-                                        <div> <span style="color:red;" id="cus16"></span></div>
+                                        
                                         <div class="form-group">
                                             <input type="text" minlength="10" maxlength="10" class="form-control" placeholder="Phone *" name="Phone_no" id="Phone_no"value="">
+                                            <div> <span style="color:red;" id="cus17"></span></div>
                                         </div>
-                                        <div> <span style="color:red;" id="cus17"></span></div>
+                                        
                                         <input type="submit" class="btn btn-lg btnRegister"  value="Submit" onclick="return user_validation1();">
                                     </div>
                                 </div>
@@ -181,7 +193,5 @@
         });
     </script>
 </body>
+</html>
 
-</html>
-    </body>
-</html>
