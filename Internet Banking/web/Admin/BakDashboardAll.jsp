@@ -31,12 +31,13 @@
         }
         function Reject(val)
         {
+//            alert("d");
             var loc="ModifyBanket.jsp?Reject="+val;
             window.location=loc;
         }
-        {
+        
         function Details(val)
-            var loc="Details_Banker.jsp?Details="+val;
+        {    var loc="Details_Banker.jsp?Details="+val;
             window.location=loc; 
         }
     </script>
