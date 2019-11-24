@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="../Css/Banker_css/BankerHome.css">
-    <link rel="stylesheet" href="../Css/Banker_css/AcForNewUser.css"
+    <link rel="stylesheet" href="../Css/Banker_css/AcForNewUser.css">
+    <link rel="stylesheet" href="build/css/intlTelInput.css">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
@@ -118,27 +119,15 @@
                                         </div>
                                         
                                         <div class="form-group">
-                                           <select class="form-control" name="country" id="country" size="1">
-                                               <option value="" disabled="" selected="">Select your Country</option>
-                                            <option value="INDIA" >INDIA</option>
-                                            </select>
-                                            <div> <span style="color:red;" id="cus11"></span></div>
+                                            <input type="text" class="form-control" placeholder="Country *" id="country" name="country" value="">  
                                             </div>
                                         
                                             <div class="form-group">
-                                            <select class="form-control" name="state" id="state" size="1">
-                                                <option value="" disabled="" selected="">Select your State</option>
-                                                <option value="WEST BENGAL">WEST BENGAL</option>
-                                            </select>
-                                                <div> <span style="color:red;" id="cus12"></span></div>
+                                        <input type="text" class="form-control" placeholder="State *" id="state" name="state" value="">  
                                              </div>
                                         
                                             <div class="form-group">
-                                            <select class="form-control" name="district" id="district" size="1">
-                                                <option value="" disabled="" selected="">Select your District </option>
-                                            <option value="HOWRAH">HOWRAH</option>
-                                            </select>
-                                                <div> <span style="color:red;" id="cus13"></span></div>
+                                        <input type="text" class="form-control" placeholder="District *" id="district" name="district" value="">  
                                         </div>
                                         
                                          <div class="form-group">
@@ -157,8 +146,7 @@
                                         </div>
                                         
                                         <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" class="form-control" placeholder="Phone *" name="Phone_no" id="Phone_no"value="">
-                                            <div> <span style="color:red;" id="cus17"></span></div>
+                                            <input type="tel" minlength="10" maxlength="10" class="form-control" placeholder="Phone *" name="Phone_no" id="Phone_no"value="">
                                         </div>
                                         
                                         <input type="submit" class="btn btn-lg btnRegister"  value="Submit" onclick="return user_validation1();">
@@ -192,6 +180,33 @@
             });
         });
     </script>
+     <script src="build/js/intlTelInput.js"></script>
+  <script>
+    var input = document.querySelector("#Phone_no");
+    window.intlTelInput(input, {
+      // allowDropdown: false,
+      // autoHideDialCode: false,
+      // autoPlaceholder: "off",
+      // dropdownContainer: document.body,
+      // excludeCountries: ["us"],
+      // formatOnDisplay: false,
+      // geoIpLookup: function(callback) {
+      //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+      //     var countryCode = (resp && resp.country) ? resp.country : "";
+      //     callback(countryCode);
+      //   });
+      // },
+      // hiddenInput: "full_number",
+      // initialCountry: "auto",
+      // localizedCountries: { 'de': 'Deutschland' },
+      // nationalMode: false,
+      // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+      // placeholderNumberType: "MOBILE",
+      // preferredCountries: ['cn', 'jp'],
+      // separateDialCode: true,
+      utilsScript: "build/js/utils.js",
+    });
+  </script>
 </body>
 </html>
 
