@@ -119,15 +119,18 @@
                                         </div>
                                         
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Country *" id="country" name="country" value="">  
+                                            <input type="text" class="form-control" placeholder="Country *" id="country" name="country" value=""> 
+                                             <div> <span style="color:red;" id="cus11"></span></div>
                                             </div>
                                         
                                             <div class="form-group">
                                         <input type="text" class="form-control" placeholder="State *" id="state" name="state" value="">  
+                                         <div> <span style="color:red;" id="cus12"></span></div>
                                              </div>
                                         
                                             <div class="form-group">
                                         <input type="text" class="form-control" placeholder="District *" id="district" name="district" value="">  
+                                         <div> <span style="color:red;" id="cus13"></span></div>
                                         </div>
                                         
                                          <div class="form-group">
@@ -147,6 +150,7 @@
                                         
                                         <div class="form-group">
                                             <input type="tel" minlength="10" maxlength="10" class="form-control" placeholder="Phone *" name="Phone_no" id="Phone_no"value="">
+                                             <div> <span style="color:red;" id="cus17"></span></div>
                                         </div>
                                         
                                         <input type="submit" class="btn btn-lg btnRegister"  value="Submit" onclick="return user_validation1();">
