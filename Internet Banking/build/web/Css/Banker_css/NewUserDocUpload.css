@@ -1,0 +1,23 @@
+#upld{
+    background-color: rgba(0,0,138,0.9);
+    padding: 70px;
+    border: 2px solid; 
+    box-shadow: 5px 5px 9px rgba(0, 0, 138, 0.8);
+}
+.custom-file{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#heading {
+    color: aliceblue;
+    margin-bottom: 45px;
+    margin-left: 25px;
+}
+.btn{
+    background-color: aliceblue;
+    color: rgb(0,0,138);
+}
+.btn-sh {
+    background-color: rgb(0,0,138);
+    color: aliceblue;
+}

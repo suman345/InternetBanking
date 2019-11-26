@@ -12,7 +12,7 @@
     <script src="../Java_Script/Banker_js/Banker_Registration.js"></script>
     
 
-    <title>Banker's Login</title>
+    <title>Banker's Registration</title>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg">

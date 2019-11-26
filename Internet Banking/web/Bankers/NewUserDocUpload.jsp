@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <!-- Our Custom CSS -->
      <link rel="stylesheet" href="../Css/Banker_css/BankerHome.css">
-     <link rel ="stylesheet" href="../Css/Banker_css/Bdeposite.css">
+     <link rel ="stylesheet" href="../Css/Banker_css/NewUserDocUpload.css">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
@@ -30,19 +30,27 @@
         <div id="content">
 
             <%@include file="pagefiles/Banker_navbar.jsp" %>
-            <form action="#" style="max-width:500px;margin:auto; margin-top: 30px;" id="dform">
-              <h2 id="heading">Customar Deposite</h2>
+            <form action="#" style="max-width:500px;margin:auto; margin-top: 30px;" id="upld">
+              <h2 id="heading">Document Upload</h2>
+              <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="idupld" name="idupld">
+                <label class="custom-file-label" for="idupld">Upload Identification Proof*</label>
+              </div>
               <div class="input-container">
-                <input class="input-field inp" type="text" placeholder="Account Number" id="acno" name="acno">
+                <input class="form-control" type="text" placeholder="ID Number" id="adrno" name="adrno">
                 </div>
+               <div class="custom-file">
+                   <input type="file" class="custom-file-input" id="addupload" name="addupload">
+                <label class="custom-file-label" for="addupload">Upload Address Proof*</label>
+              </div>
                  <div class="input-container">
-                <input class="input-field inp" type="text" placeholder="Amount to Deposite" id="deposite" name="deposite">
+                <input class="form-control" type="text" placeholder="Document No" id="addno" name="addno">
                 </div>
-                 <div class="input-container">
-                <input class="input-field" type="radio" id="actype" name="actype"><p style="color: aliceblue;">Savings</p>
-                <input class="input-field" type="radio" id="actype" name="actype"><p style="color: aliceblue;">Current</p>
-                </div>
-              <button type="submit" class="btn btn-MD" id="DepBtn">Deposite</button>
+                 <div class="custom-file">
+                     <input type="file" class="custom-file-input" id="photo" name="photo">
+                <label class="custom-file-label" for="photo">Upload Photo*</label>
+              </div>
+              <button type="submit" class="btn btn-lg" id="UpldBtn">Deposite</button>
               </form>
         </div>
     </div>

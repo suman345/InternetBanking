@@ -49,15 +49,23 @@
       <div class="input-container">
         <i class="fa fa-envelope icon"></i>
         <input class="input-field" type="text" placeholder="Username" name="email" id="email">
+        <div> <span style="color:aqua;" id="emp2"></span></div>
       </div>
-      <div> <span style="color:aqua;" id="emp2"></span></div>
       <div class="input-container">
         <i class="fa fa-key icon"></i>
         <input class="input-field" type="password" placeholder="Password" name="psw" id="password">
+        <div> <span style="color:aqua;" id="emp3"></span></div>
       </div>
-      <div> <span style="color:aqua;" id="emp3"></span></div>
-      <p id="forgetpw">Have you forgot your password ? >> <a href="#" style="color: black; font-size: 14px; font-style: italic; font-synthesis: weight;">Click here</a></p>
-      <button type="submit" class="btn" id="Loginbtn" onclick="return login_validation();">Login</button>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-7">
+                   <p id="forgetpw">Have you forgot your password ? >> <a href="#" style="color: black; font-size: 14px; font-style: italic; font-synthesis: weight;">Click here</a></p> 
+              </div>
+              <div class="col-md-5 text-right">
+      <button type="submit" class="btn btn-lg " id="Loginbtn" onclick="return login_validation();">Login</button>
+      </div>
+          </div>
+      </div>
       </form>
       
       
@@ -69,5 +77,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     
   </body>
-    </body>
 </html>

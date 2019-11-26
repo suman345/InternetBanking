@@ -92,18 +92,15 @@ body{
   border: 2px solid blue;
 }
 
-#Loginbtn {
+.btn-lg {
   background-color: blue;
   color: white;
-  padding: 15px 20px;
   border: none;
   cursor: pointer;
-  width: 20;
   opacity: 0.9;
   border-style: double;
   border-color: black;
   border-radius: 10px;
-  margin-left: 392px;
 }
 #Loginbtn:hover{
   opacity: 8;
