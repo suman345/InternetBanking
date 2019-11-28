@@ -4,7 +4,7 @@
             </div>
 
             <ul class="list-unstyled components">
-                 <li class="active">
+                 <li>
                     <a href="#">My Profile</a>
                 </li>
                 <li>
@@ -44,8 +44,5 @@
             </ul>
 
             <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="home.html">Back to Home</a>
-                </li>
             </ul>
         </nav>

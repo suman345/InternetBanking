@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title>Internet Banking</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -46,7 +46,7 @@
                    <th scope="col">Phone NO</th>
                    <th scope="col">Aadher NO</th>
                    <th scope="col">Pan NO</th>
-                   <th scope="col">Update</th>
+                   <!--<th scope="col">Update</th>-->
                  </tr>
                  <tr>
                      <%
@@ -67,7 +67,7 @@
                      <td><%= rs.getString("moblie_number")%></td>
                      <td><%= rs.getString("aadhar_no")%></td>
                      <td><%= rs.getString("pan_number")%></td>
-                        <td><a class="btn btn-sm btn-info" href="#"><i class="fas fa-info-circle"></i> Details</a> </td>
+                       <!--<td><a class="btn btn-sm btn-info" href="#"><i class="fas fa-info-circle"></i> Details</a> </td>-->
                  </tr>    
                  <%
                      }
@@ -103,7 +103,7 @@ catch(Exception ex){}
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
+            $('#sidebar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Collapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
                 $(this).toggleClass('active');
             });

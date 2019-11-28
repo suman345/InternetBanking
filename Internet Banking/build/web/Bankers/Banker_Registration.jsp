@@ -24,7 +24,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../index.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
     </ul>
       <p id="Query">Already have an account ? </p>
@@ -41,40 +41,40 @@
       <form action="../Banker_Registration" method="POST" style="max-width:500px;margin:auto; margin-top: 30px; background-color: rgba(0,0,0,0.4); border-style: double; border-color: aliceblue; padding: 5px;">
       <h1 id="heading">Register Here</h1>
       <div class="input-container">
-        <input class="input-field" type="text" placeholder="Employee Id" id="EmpId" name="EmpId">
+        <input class="input-field" type="text" title="Employee Id" placeholder="Employee Id" id="EmpId" name="EmpId">
        
         </div>
          <div> <span style="color:aqua;" id="emp1"></span></div>
          <div class="input-container">
-        <input class="input-field" type="text" placeholder="Branch Name" id="BranchNm" name="BranchNm">
+        <input class="input-field" type="text" tilte=" Branch Name"placeholder="Branch Name" id="BranchNm" name="BranchNm">
         </div>
            <div> <span style="color:aqua;;" id="emp2"></span></div>
          <div class="input-container">
-        <input class="input-field" type="text" placeholder="Branch Code" id="BranchCd" name="BranchCd">
+        <input class="input-field" type="text"  title="Branch Code "placeholder="Branch Code" id="BranchCd" name="BranchCd">
         </div>
-             <div> <span style="color:aqua;;" id="emp3"></span></div>
+             <div> <span style="color:aqua;" id="emp3"></span></div>
          <div class="input-container">
-        <input class="input-field" type="text" placeholder="IFSC Code" id="ifsc" name="ifsc">
+        <input class="input-field" type="text" title="IFSC Code"placeholder="IFSC Code" id="ifsc" name="ifsc">
         </div>
-               <div> <span style="color:aqua;;" id="emp4"></span></div>
+               <div> <span style="color:aqua;" id="emp4"></span></div>
          <div class="input-container">
-        <input class="input-field" type="text" placeholder="Employee Name" id="EmpNm" name="EmpNm">
+             <input class="input-field" type="text" title="Employee Name" placeholder="Employee Name" id="EmpNm" name="EmpNm">
         </div>
-                 <div> <span style="color:aqua;;" id="emp5"></span></div>
+                 <div> <span style="color:aqua;" id="emp5"></span></div>
         <div class="input-container">
-          <input class="input-field" type="text" placeholder="Email" name="email" id="email">
+          <input class="input-field" type="text" title="Email" placeholder="Email" name="email" id="email">
         </div>
-                   <div> <span style="color:aqua;;" id="emp6"></span></div>
+                   <div> <span style="color:aqua;" id="emp6"></span></div>
          <div class="input-container">
-        <input class="input-field" type="text" placeholder="Mobile Number" id="MobNo" name="MobNo">
+        <input class="input-field" type="text" title="Mobile Number" placeholder="Mobile Number" id="MobNo" name="MobNo">
         </div>
-                     <div> <span style="color:aqua;;" id="emp7"></span></div>
+                     <div> <span style="color:aqua;" id="emp7"></span></div>
          <div class="input-container">
-        <input class="input-field" type="text" placeholder="Aadhar No" id="Aadhar" name="Aadhar">
+             <input class="input-field" type="text" title="Aadhar Number" placeholder="Aadhar No" id="Aadhar" name="Aadhar">
         </div>
                        <div> <span style="color:aqua;;" id="emp8"></span></div>
          <div class="input-container">
-        <input class="input-field" type="text" placeholder="Pan Number" id="Pan" name="Pan">
+        <input class="input-field" type="text" tilte="Pan Number" placeholder="Pan Number" id="Pan" name="Pan">
         </div>
                          <div> <span style="color:aqua;;" id="emp9"></span></div>
 <!--        <div class="input-container">
