@@ -39,38 +39,66 @@ function user_validation1()
     }
     if(fname.value === "")
     {  
-        fname.style.borderColor="red";
-        document.getElementById('cus2').innerHTML="Please Enter The First Name";
-      
-        f=1;
+            fname.style.borderColor="red";
+            document.getElementById('cus2').innerHTML="Please Enter The First Name";
+            f=1;
+        
     }
-    else {
-        fname.style.borderColor="green";
-        document.getElementById('cus2').innerHTML="";
+    else 
+    {
+         if(fname.value.length < 3)
+        {
+            fname.style.borderColor="red";
+            document.getElementById('cus2').innerHTML="Please Enter The Three Charter";
+            f=1; 
+        }
+        else
+        {
+            fname.style.borderColor="green";
+            document.getElementById('cus2').innerHTML="";
+        }
         
     }
     if(lname.value === "")
     {  
         lname.style.borderColor="red";
         document.getElementById('cus3').innerHTML="Please Enter The Last Name";
-      
         f=1;
     }
-    else {
-        lname.style.borderColor="green";
-        document.getElementById('cus3').innerHTML="";
+    else
+    {
+        if(lname.value.length<3)
+        {
+            lname.style.borderColor="red";
+            document.getElementById('cus3').innerHTML="Please Enter The The Three Charter";
+            f=1;
+        }
+        else
+        {
+            lname.style.borderColor="green";
+            document.getElementById('cus3').innerHTML="";
+        }
         
     }
     if(ftname.value === "")
     {  
         ftname.style.borderColor="red";
         document.getElementById('cus4').innerHTML="Please Enter The Father's Name";
-      
         f=1;
     }
-    else {
-        ftname.style.borderColor="green";
-        document.getElementById('cus4').innerHTML="";
+    else 
+    {
+        if(ftname.value.length<3)
+        {
+            ftname.style.borderColor="red";
+            document.getElementById('cus4').innerHTML="Please Enter The Three Charter";
+            f=1;
+        }
+        else
+        {
+            ftname.style.borderColor="green";
+            document.getElementById('cus4').innerHTML="";
+        }
         
     }
     if(dob.value === "")
@@ -213,10 +241,20 @@ function user_validation1()
         f=1;
     }
     else {
-        Phone_no.style.borderColor="green";
-        document.getElementById('cus17').innerHTML="";
+            if(Phone_no.value.length!=10)
+            {
+                Phone_no.style.borderColor="red";
+                document.getElementById('cus17').innerHTML="The Mobile Number Must Be of 10 Digit";
+                f=1;
+            }
+            else
+            {
+                Phone_no.style.borderColor="green";
+                document.getElementById('cus17').innerHTML="";
+            }
         
     }
+    
     if(f===1)
     {
         return false;

@@ -149,7 +149,7 @@
                                         </div>
                                         
                                         <div class="form-group">
-                                            <input type="tel" minlength="10" maxlength="10" class="form-control" placeholder="Phone *" name="Phone_no" id="Phone_no"value="">
+                                            <input type="tel" class="form-control" placeholder="Phone *" name="Phone_no" id="Phone_no"value="">
                                              <div> <span style="color:red;" id="cus17"></span></div>
                                         </div>
                                         

@@ -59,9 +59,19 @@ function bankers_validation()
                 }
                 else
                 {
-                    ifsc.style.borderColor="green";
-                    document.getElementById('emp4').innerHTML="";
+                    if(ifsc.value.length !==10)
+                    {
+                        ifsc.style.borderColor="red";
+                        document.getElementById('emp4').innerHTML="The IFSC Must Be of 10 Digit";
+                        f=1;
+                    }
+                    else
+                    {
+                        ifsc.style.borderColor="green";
+                        document.getElementById('emp4').innerHTML="";
+                    }
                 }
+                
                 if(Employename.value==="")
                 {
                    Employename.style.borderColor="red";
@@ -92,19 +102,37 @@ function bankers_validation()
                 }
                 else
                 {
-                     number.style.borderColor="green";
-                    document.getElementById('emp7').innerHTML="";
+                    if(number.value.length!==10)
+                    {
+                        number.style.borderColor="red";
+                        document.getElementById('emp7').innerHTML="The Mobile Number Must Be of 10 Digit";
+                        f=1;
+                    }
+                    else
+                    {
+                        number.style.borderColor="green";
+                        document.getElementById('emp7').innerHTML="";
+                    }
                 }
                  if(aadhar.value==="")
                 {
                    aadhar.style.borderColor="red";
-                    document.getElementById('emp8').innerHTML="Please Enter The Aadhar";
+                    document.getElementById('emp8').innerHTML="Please Enter The Aadhar Number";
                     f=1;
                 }
                 else
                 {
-                     aadhar.style.borderColor="green";
-                    document.getElementById('emp8').innerHTML="";
+                    if(aadhar.value.length!==12)
+                    {
+                        aadhar.style.borderColor="red";
+                        document.getElementById('emp8').innerHTML="The Addher Number Must Be of 12 Digit";
+                        f=1; 
+                    }
+                    else
+                    {
+                        aadhar.style.borderColor="green";
+                        document.getElementById('emp8').innerHTML="";
+                    }
                 }
                   if(pan.value==="")
                 {
@@ -114,8 +142,17 @@ function bankers_validation()
                 }
                 else
                 {
-                     pan.style.borderColor="green";
-                    document.getElementById('emp9').innerHTML="";
+                    if(pan.value.length!==10)
+                    {
+                        pan.style.borderColor="red";
+                        document.getElementById('emp9').innerHTML="The Pan Number Must Be of 10 Digit";
+                        f=1; 
+                    }
+                    else
+                    {
+                         pan.style.borderColor="green";
+                       document.getElementById('emp9').innerHTML="";
+                    }
                 }
 //                 if(password.value==="")
 //                {
