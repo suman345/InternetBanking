@@ -24,6 +24,10 @@
         <servlet-name>User_registration</servlet-name>
         <servlet-class>com.internet_banking.User_registration</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Testserv</servlet-name>
+        <servlet-class>com.internet_banking.Testserv</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Lets_Go</servlet-name>
         <url-pattern>/Lets_Go</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>User_registration</servlet-name>
         <url-pattern>/User_registration</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Testserv</servlet-name>
+        <url-pattern>/Testserv</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
