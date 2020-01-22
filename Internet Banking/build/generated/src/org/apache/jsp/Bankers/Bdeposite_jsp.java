@@ -54,7 +54,7 @@ public final class Bdeposite_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n");
       out.write("    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n");
       out.write("\r\n");
-      out.write("    <title>Collapsible sidebar using Bootstrap 4</title>\r\n");
+      out.write("    <title>Deposite</title>\r\n");
       out.write("\r\n");
       out.write("    <!-- Bootstrap CSS CDN -->\r\n");
       out.write("    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css\" integrity=\"sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4\" crossorigin=\"anonymous\">\r\n");

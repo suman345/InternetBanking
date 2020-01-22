@@ -32,6 +32,10 @@
             <%@include file="pagefiles/Banker_navbar.jsp" %>
             <form action="#" style="max-width:500px;margin:auto; margin-top: 30px;" id="upld">
               <h2 id="heading">Document Upload</h2>
+              <div class="input-container">
+                  <p id="cifcu">CIF</p>
+                  <input type="text" class="form-control" id="fetchcif" name="detchcif">
+              </div>
               <div class="custom-file">
                   <input type="file" class="custom-file-input" id="idupld" name="idupld">
                 <label class="custom-file-label" for="idupld">Upload Identification Proof*</label>

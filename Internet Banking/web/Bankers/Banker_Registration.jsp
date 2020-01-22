@@ -16,7 +16,7 @@
   </head>
   <body>
   <nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" href="#">My Bank</a>
+  <a class="navbar-brand" href="#">NDBL Bank</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"><i class="fas fa-hamburger fa-lg"></i></span>
   </button>
