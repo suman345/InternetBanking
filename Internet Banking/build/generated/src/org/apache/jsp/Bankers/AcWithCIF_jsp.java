@@ -54,7 +54,7 @@ public final class AcWithCIF_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
       out.write("    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n");
       out.write("\n");
-      out.write("    <title>Collapsible sidebar using Bootstrap 4</title>\n");
+      out.write("    <title>Internet Banking</title>\n");
       out.write("\n");
       out.write("    <!-- Bootstrap CSS CDN -->\n");
       out.write("    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css\" integrity=\"sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4\" crossorigin=\"anonymous\">\n");
@@ -66,6 +66,7 @@ public final class AcWithCIF_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css\">\n");
       out.write("\n");
       out.write("    <!-- Font Awesome JS -->\n");
+      out.write("    <script src=\"../Java_Script/Banker_js/AcWithCIF.js\"></script>\n");
       out.write("    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/solid.js\"></script>\n");
       out.write("    <script defer src=\"https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js\" integrity=\"sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY\" crossorigin=\"anonymous\"></script>\n");
       out.write("</head>\n");
@@ -115,7 +116,7 @@ public final class AcWithCIF_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    <a href=\"AcWithCIF.jsp\">Existing User</a>\n");
       out.write("                                </li>\n");
       out.write("                                <li>\n");
-      out.write("                                    <a href=\"#\">New User</a>\n");
+      out.write("                                    <a href=\"AcForNew_user.jsp\">New User</a>\n");
       out.write("                                </li>\n");
       out.write("                            </ul>\n");
       out.write("                        </li>\n");
@@ -187,7 +188,7 @@ public final class AcWithCIF_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </ul>\n");
       out.write("              <ul class=\"list-unstyled CTAs\">\n");
       out.write("                <li>\n");
-      out.write("                    <a href=\"home.html\">Back to Home</a>\n");
+      out.write("                    <a href=\"#\">Back to Home</a>\n");
       out.write("                </li>\n");
       out.write("            </ul>\n");
       out.write("        </nav>\n");
@@ -198,7 +199,7 @@ public final class AcWithCIF_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("            ");
       out.write("\n");
-      out.write("            <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n");
+      out.write("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n");
       out.write("                <div class=\"container-fluid\">\n");
       out.write("\n");
       out.write("                    <button type=\"button\" id=\"sidebarCollapse\" class=\"btn btn-sm btn-sh\">\n");
@@ -215,7 +216,7 @@ public final class AcWithCIF_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <a class=\"nav-link\" href=\"#\"><i class=\"fas fa-envelope-open-text fa-lg\"></i></a>\n");
       out.write("                            </li>\n");
       out.write("                            <li class=\"nav-item\">\n");
-      out.write("                                <a class=\"nav-link\" href=\"login.html\"><i class=\"fas fa-sign-out-alt fa-lg\"></i></a>\n");
+      out.write("                                <a class=\"nav-link\" href=\"../Logout.jsp\"><i class=\"fas fa-sign-out-alt fa-lg\"></i></a>\n");
       out.write("                            </li>\n");
       out.write("                        </ul>\n");
       out.write("                    </div>\n");
@@ -226,9 +227,9 @@ public final class AcWithCIF_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("             <form action=\"#\" style=\"max-width:500px;margin:auto; margin-top: 30px;\" id=\"dform\">\n");
       out.write("              <h2 id=\"heading\">CIF Number</h2>\n");
       out.write("              <div class=\"input-container\">\n");
-      out.write("                <input class=\"input-field inp\" type=\"text\" placeholder=\"Enter CIF Number\" id=\"acno\" name=\"acno\">\n");
+      out.write("                <input class=\"input-field inp\" type=\"text\" placeholder=\"Enter CIF Number\" id=\"cif\" name=\"cif\">\n");
       out.write("                </div>\n");
-      out.write("              <button type=\"submit\" class=\"btn btn-md\" id=\"DepBtn\">Find</button>\n");
+      out.write("              <button type=\"submit\" class=\"btn btn-md\" id=\"DepBtn\" data-target=\"#s\" onclick=\"return cnf_number();\">Find</button>\n");
       out.write("                 <div class=\"forget_part\"><p id=\"fgttxt\">forgot CIF number?? \n");
       out.write("                    <button type=\"button\" class=\"btn btn-sm\" data-toggle=\"modal\" data-target=\"#fgt\" id=\"viewBtn\">ClickMe\n");
       out.write("                  </button>\n");
@@ -244,7 +245,7 @@ public final class AcWithCIF_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                               <form action=\"#\">\n");
       out.write("                                   <div class=\"input-container\">\n");
       out.write("                                    <input class=\"input-field inp\" type=\"text\" placeholder=\"Enter A/C Number\" id=\"acno\" name=\"acno\">\n");
-      out.write("                                     <button type=\"button\" class=\"btn btn-sm\" data-toggle=\"modal\" data-target=\"#srchcif\" id=\"srch\">Search</button>        \n");
+      out.write("                                    <button type=\"button\" class=\"btn btn-sm\" data-toggle=\"modal\" data-target=\"#srchcif\" id=\"srch\" onclick=\"return ac_number();\">Search</button>        \n");
       out.write("                                   </div>\n");
       out.write("                                </form>\n");
       out.write("                                </div>\n");

@@ -7,6 +7,7 @@ package com.internet_banking;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -93,7 +94,7 @@ public class Mainlogin extends HttpServlet {
     }// </editor-fold>
 
     private void processRequest1(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-       
+       PrintWriter out = response.getWriter();
         String userid,password,type;
            userid=request.getParameter("email");
            password=request.getParameter("psw");
@@ -116,13 +117,17 @@ public class Mainlogin extends HttpServlet {
                    }    
                    else
                    {
-                       
+                        if(type.equalsIgnoreCase("User"))
+                        {
+                              response.sendRedirect("User/User_Home.jsp");
+                           //out.println("fffffffff");
+                       } 
                    }
                }
             }
             else
             {
-                response.sendRedirect("Login/Login.jsp?error=1");
+                response.sendRedirect("Login/Login.jsp?msg=error1");
             }
            }
         

@@ -1,3 +1,4 @@
+<%@page import="java.util.Base64"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
      <link rel ="stylesheet" href="../Css/Banker_css/NewUserDocUpload.css">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
+    <script src="../Java_Script/User_js1/UserRegistrationDoc.js"></script>
     <!-- Font Awesome JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/solid.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -30,31 +31,67 @@
         <div id="content">
 
             <%@include file="pagefiles/Banker_navbar.jsp" %>
-            <form action="#" style="max-width:500px;margin:auto; margin-top: 30px;" id="upld">
+            
+            <form action="../Userdocument1" style="max-width:500px;margin:auto; margin-top: 30px;" id="upld" method="POST" enctype="multipart/form-data">
               <h2 id="heading">Document Upload</h2>
               <div class="input-container">
-                  <p id="cifcu">CIF</p>
-                  <input type="text" class="form-control" id="fetchcif" name="detchcif">
+                  <p id="cifcu">CIF No</p>
+                  <%
+                        try
+                        {
+                            String msg= request.getParameter("msg");
+                            String time=new String( Base64.getDecoder().decode(msg));
+                            try
+                            {
+                                long timeLong=Long.parseLong(time);
+                            
+                       
+                    %>
+                    <input type="text" class="form-control" id="fetchcif" name="cifno" value="<%=time%>" disabled="true">
+                    <input type="hidden" class="form-control" id="h_fetchcif" name="h_cifno" value="<%=time%>">
+                    <%
+                            }
+                            catch(Exception ex)
+                            {
+                                %>
+                                <script>
+                                    alert("Invalid Url");
+                                </script>
+                                <%
+                            }
+                         }
+                        catch(Exception ex){}
+                    %>
               </div>
+              <div> <span style="color:aqua;" id="doc1"></span></div>
               <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="idupld" name="idupld">
+                  <input type="file" class="custom-file-input" id="idupld" name="doc">
                 <label class="custom-file-label" for="idupld">Upload Identification Proof*</label>
               </div>
-              <div class="input-container">
+              <div> <span style="color:aqua;" id="doc2"></span></div>
+            
+              
+         <div class="input-container">
                 <input class="form-control" type="text" placeholder="ID Number" id="adrno" name="adrno">
                 </div>
-               <div class="custom-file">
+              <div> <span style="color:aqua;" id="doc3"></span></div>
+                <div class="custom-file">
                    <input type="file" class="custom-file-input" id="addupload" name="addupload">
                 <label class="custom-file-label" for="addupload">Upload Address Proof*</label>
               </div>
-                 <div class="input-container">
+              <div> <span style="color:aqua;" id="doc4"></span></div>
+           
+               
+               <div class="input-container">
                 <input class="form-control" type="text" placeholder="Document No" id="addno" name="addno">
                 </div>
+               <div> <span style="color:aqua;" id="doc5"></span></div>
                  <div class="custom-file">
                      <input type="file" class="custom-file-input" id="photo" name="photo">
                 <label class="custom-file-label" for="photo">Upload Photo*</label>
-              </div>
-              <button type="submit" class="btn btn-lg" id="UpldBtn">Deposite</button>
+                 </div>
+                <div> <span style="color:aqua;" id="doc6"></span></div>
+                <button type="submit" class="btn btn-lg" id="UpldBtn" onclick="return user_document();">Deposite</button>
               </form>
         </div>
     </div>

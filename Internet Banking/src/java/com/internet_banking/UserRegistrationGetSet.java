@@ -12,11 +12,13 @@ package com.internet_banking;
 public class UserRegistrationGetSet {
     String actype,fname,lname,ftname,dob,gender,occupation,annual_income,brname,brcode,country,state,
                     district,locality,zip_code,email,Phone_no,type;
+    long time;
 
+   
     public UserRegistrationGetSet() {
     }
 
-    public UserRegistrationGetSet(String actype, String fname, String lname, String ftname, String dob, String gender, String occupation, String annual_income, String brname, String brcode, String country, String state, String district, String locality, String zip_code, String email, String Phone_no, String type) {
+    public UserRegistrationGetSet(String actype, String fname, String lname, String ftname, String dob, String gender, String occupation, String annual_income, String brname, String brcode, String country, String state, String district, String locality, String zip_code, String email, String Phone_no, String type,String cif) {
         this.actype = actype;
         this.fname = fname;
         this.lname = lname;
@@ -35,7 +37,18 @@ public class UserRegistrationGetSet {
         this.email = email;
         this.Phone_no = Phone_no;
         this.type = type;
+        //this.cif = cif;
     }
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+  
 
     public String getActype() {
         return actype;

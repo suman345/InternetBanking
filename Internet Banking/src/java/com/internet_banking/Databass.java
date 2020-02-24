@@ -81,7 +81,7 @@ public class Databass {
                 String qur="INSERT INTO`login_details`(`username`,`password`,`type`, `isActive`)values(?,?,?,?)";
                 smt=conn.prepareStatement(qur);
                 smt.setString(1,bgs.getEmail());
-                smt.setString(2,bgs.getEmail());
+                smt.setString(2,bgs.getPassword());
                 smt.setString(3,bgs.getType());
                 smt.setString(4,"0");
                 smt.execute();
@@ -105,7 +105,7 @@ public class Databass {
                 {
                     String qur="INSERT INTO `new_user_registration`( `ac_type`, `first_name`, `last_name`, `father_name`, `dob`, `gender`, `accupation`, `annual_income`, `branch_name`, "
                             + "`branch_code`, `country`, `state`, `district`, `locality`, `zip_code`, `email`, "
-                            + "`phone_on`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                            + "`phone_on`,`cif_no`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                     smt=conn.prepareStatement(qur);
                     smt.setString(1,ugs.getActype());
                     smt.setString(2,ugs.getFname());
@@ -124,6 +124,7 @@ public class Databass {
                     smt.setString(15,ugs.getZip_code());
                     smt.setString(16,ugs.getEmail());
                     smt.setString(17,ugs.getPhone_no());
+                    smt.setLong(18,ugs.getTime());
                     smt.execute();
                     return 1;
                 }
@@ -138,7 +139,90 @@ public class Databass {
                 return 0;
             }
         }
-
+        //This function is user_document and servlet
+        int user_document(User_doc1getser doc1)
+        {
+            try{
+                if(isConnected())
+                {
+                    String qur="INSERT INTO `user_document`( `cif_no`, `identification_proof`, `id_number`, `address_proof`, `document_no`, `photo`, `account_no`,`amount`) VALUES (?,?,?,?,?,?,?,?)";
+                    smt=conn.prepareStatement(qur);
+                    smt.setString(1, doc1.getCif());
+                    smt.setString(2, doc1.getSetid());
+                    smt.setString(3, doc1.getAdrno());
+                    smt.setString(4, doc1.getSetardno());
+                    smt.setString(5, doc1.getAddno());
+                    smt.setString(6, doc1.getSetphoto());
+                    smt.setLong(7, doc1.getTime());
+                    smt.setInt(8, 0);
+                    smt.execute();
+                    return 1;
+                }   
+                        
+                else
+                {
+                    return 0;
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                return 0;
+            }
+        }
+        //user_Register member insert and servlet UserRegister
+        int user_register(UserRegistergetset ur)
+        {
+            try{
+                if(isConnected())
+                {
+                    String qur="INSERT INTO `user_register`( `cif_no`, `account_no`, `phone_no`, `email`, `password`) VALUES (?,?,?,?,?)";
+                    smt=conn.prepareStatement(qur);
+                    smt.setString(1,ur.getCifno());
+                    smt.setString(2,ur.getAccno());
+                    smt.setString(3,ur.getMbno());
+                    smt.setString(4,ur.getEmail());
+                    smt.setString(5,ur.getPassword());
+                    smt.execute();
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch(Exception ex)
+            {
+                return 0;
+            }
+        }
+        //This Function userlogin servlet is UserRegister.java    
+        int user_login(UserRegistergetset ur)
+        {
+            try{
+                if(isConnected())
+                {
+                    String qur="INSERT INTO`login_details`(`username`,`password`,`type`, `isActive`)values(?,?,?,?)";
+                    smt=conn.prepareStatement(qur);
+                    smt.setString(1, ur.getEmail());
+                    smt.setString(2,ur.getPassword());
+                    smt.setString(3, ur.getType());
+                    smt.setString(4, "0");
+                    smt.execute();
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                return 0;
+            }
+        }
+ 
     ResultSet CheckLogin(String userid, String password) {
         try
         {
@@ -162,6 +246,31 @@ public class Databass {
         }
        
     }
+    //This Function UserRegister from nldb servlet is UserRegister.java
+    ResultSet checkUserRegister(String cifno,String accno,String mbno, String email){
+        try{
+            if(isConnected())
+            {
+                String qur="select n.cif_no,n.phone_on,n.email,u.account_no from new_user_registration n,user_document u where n.cif_no =u.cif_no and n.cif_no=? and n.phone_on=? and n.email=? and u.account_no=?";
+                smt=conn.prepareStatement(qur);
+                smt.setString(1, cifno);
+                smt.setString(2,mbno);
+                smt.setString(3, email);
+                smt.setString(4, accno);
+                rs=smt.executeQuery();
+                return rs;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        catch(Exception ex)
+        {
+            return null;
+        }
+    }
+    //This Function used by BakDashboardAll.jsp
     public ResultSet BankerDetail()
     {
         try{
@@ -170,7 +279,7 @@ public class Databass {
                 String q="SELECT * FROM login_details where `type`='Banker' ORDER BY `id` ASC";
                 smt=conn.prepareStatement(q);
                 rs=smt.executeQuery();
-                        return rs;
+                return rs;
             }
             else
             {
@@ -182,6 +291,7 @@ public class Databass {
         
         }
     }
+    //This function used by Details_Banker.jsp 
     public ResultSet Banker_Details(String email)
     {
         try{
@@ -286,5 +396,318 @@ public class Databass {
 //            return 0;
         }
     }
+    public ResultSet userDetail()
+    {
+        try{
+            if(isConnected())
+            {
+               String qur="SELECT * from login_details where `type`='User' ORDER BY `id` ASC";
+               smt=conn.prepareStatement(qur);
+                rs=smt.executeQuery();
+                return rs;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        catch(Exception ex)
+        {
+           return null; 
+        }
+        
+    }
+    public void activateUser(String email)
+    {
+        try{
+            if(isConnected())
+            {
+                String qur="UPDATE `login_details` SET `isActive`='1' WHERE `username`=?";
+                smt=conn.prepareStatement(qur);
+                smt.setString(1,email);
+                smt.execute();
+            }
+        }
+        catch(Exception ex)
+        {
+            
+        }
+    }
+    public void rejectUser(String email)
+    {
+        try{
+            if(isConnected())
+            {
+                String qur="UPDATE `login_details` SET `isActive`='0' WHERE `username`=? and `type`='User'";
+                smt=conn.prepareStatement(qur);
+                smt.setString(1, email);
+                smt.execute();
+            }
+        }
+        catch(Exception ex)
+        {
+            
+        }
+    }
+    //forgot_password function.... servlet This ForgotPassword.java.java
+  public ResultSet forgot_password(String email)
+    {
+        try{
+            if(isConnected())
+            {
+                String qur="select * from login_details where username=?";
+                smt=conn.prepareStatement(qur);
+                smt.setString(1, email);
+                //smt.setString(2,password);
+                rs=smt.executeQuery();
+                return rs;
+               // return ;
+            }
+            else
+            {
+                return null;
+            }
+            
+        }
+        catch(Exception ex)
+        {
+            return null;
+        }
+    }
+   public ResultSet getuserDetails(String email)
+   {
+       try{
+           if(isConnected())
+           {
+               String qur = "select a.*, b.*  from new_user_registration a,login_details b where a.email = b.username and a.email=?";
+               smt=conn.prepareStatement(qur);
+               smt.setString(1, email);
+               rs=smt.executeQuery();
+               return rs;
+           }
+           else
+           {
+               return null;
+           }
+       }
+       catch(Exception ex)
+       {
+           return null;
+       }
+   }
+   public ResultSet getBankerDetails (String email)
+   {
+       try{
+           if(isConnected())
+           {
+               String qur="select a.*, b.*  from banker_register a,login_details b where a.email = b.username and a.email=?";
+               smt=conn.prepareStatement(qur);
+               smt.setString(1, email);
+               rs=smt.executeQuery();
+               return rs;
+           }
+           else
+           {
+               return null;
+           }
+       }
+       catch(Exception ex)
+       {
+           return null;
+       }
+   }
+  //User Deposit function.... servlet This Deposit_user.java and Withdrawl update
+  public int user_Deposit(String acno,Integer amount3)
+  {
+      try{
+          if(isConnected())
+          {
+             String qur = "UPDATE `user_document` SET `amount`=? where `account_no`=?"; 
+             smt=conn.prepareStatement(qur);
+             smt.setInt(1, amount3);
+             smt.setString(2, acno);
+             smt.executeUpdate();
+             return 1;
+          }
+          else
+          {
+              return 0;
+          }
+      }
+      catch(Exception ex)
+      {
+          return 0;
+      }
+  }
+  //userdetalisFetch function ....servlet this Deposit_user
+  public ResultSet userdetalisFetch( String acno)
+  {
+      try{
+          if(isConnected()){
+              //System.out.println("account number: "+acno);
+                // qur="select * from new_user_rejistration nu,user_document ud where nu.cif_no=ud.cif_no and ud.account_no=?";
+                String qur = "select a.*, b.* from new_user_registration a,user_document b where a.cif_no = b.cif_no and b.account_no="+acno+"";
+                smt=conn.prepareStatement(qur);
+                //smt.setString(1, acno);
+                rs=smt.executeQuery();
+                return rs;
+          }
+          else
+          {
+              return null;
+          }
+      }
+      catch(Exception ex){
+           return null;
+      }
+  }
+  //This Function made user transaction histyoy insert
+  int insertdepositdetalis(String acno,Integer amount,String today,String time,String deposit)
+  {
+      try{
+          if(isConnected())
+          {
+              //String qur = "insert into user_depwithhistory(account_no,date,amount,deposit_or_withdrawl)values(?,?,?,?)";
+              String qur="INSERT INTO `user_depwithhistory`( `account_no`, `date`, `amount`,`time`, `deposit_or_withdrawl`) VALUES (?,?,?,?,?)";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1, acno);      
+              smt.setString(2,today );
+              smt.setInt(3, amount);
+              smt.setString(4,time);
+              //setDate(4, (java.sql.Date) temp.getOrigionalAirDate());
+              smt.setString(5,deposit);
+              smt.execute();
+              return 1;
+              
+          }
+          else
+          {
+              return 0;
+          }
+          
+      }
+      catch(Exception ex)
+      {
+          return 0;
+      }
+  }
+    
+  public ResultSet myprofileuser_Details(String email)
+  {
+      try{
+          if(isConnected())
+          {
+              String qur="SELECT * FROM login_details a,new_user_registration b,user_document c where a.username=b.email and b.cif_no=c.cif_no and b.email=?";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1, email);
+              rs=smt.executeQuery();
+              return rs;
+              
+          }
+          else
+          {
+              return null;
+          }
+          
+      }
+      catch(Exception ex)
+      {
+          return null;
+      }
+  }
+  public int user_change_password(String new_password,String email)
+  {
+      try{
+          if(isConnected())
+          {
+              String qur="UPDATE `login_details` SET password=? where username=?";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1, new_password);
+              smt.setString(2, email);
+              smt.execute();
+              return 1;
+          }
+          else
+          {
+              return 0;
+          }
+      }
+      catch(Exception ex){
+          return 0;
+      }
+  }
+  public ResultSet userfetch_password(String old_password,String email)
+  {
+      try{
+          if(isConnected())
+          {
+              String qur="select * from login_details where password=? and  username=? and type='User'";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1,old_password);
+              smt.setString(2,email);
+              rs=smt.executeQuery();
+              return rs;
+          }
+          else
+          {
+              return null;
+          }
+      }
+      catch(Exception ex)
+      {
+          return null;
+      }
+  }
+ /* public ResultSet user_profile_picture(String email2)
+   {
+       try{
+           if(isConnected())
+           {
+               String qur="select a.*,b.*,c.* from login_detalis a,new_user_registration b,user_document c where a.username=b.email and b.cif_no=c.cif_no and c.photo=?";
+               smt=conn.prepareStatement(qur);
+               smt.setString(1,email2);
+               rs=smt.executeQuery();
+               return rs;
+               
+           }
+           else
+           {
+               return null;
+           }
+       }
+       catch(Exception ex)
+       {
+           return null;
+       }
+   }*/
+  public ResultSet user_welcome(String email){
+      try{
+          if(isConnected())
+          {
+              String qur="SELECT * FROM login_details a, new_user_registration b WHERE a.username=b.email AND b.email=?";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1, email);
+              rs=smt.executeQuery();
+              return rs;
+          }
+          else
+          {
+              return null;
+          }
+      }
+      catch(Exception ex)
+      {
+        return null;
+      }
+  }
+//    ResultSet checkUserRegister() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
+    private String Date() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    private String Time() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }  
 }

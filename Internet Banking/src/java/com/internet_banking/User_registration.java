@@ -7,11 +7,13 @@ package com.internet_banking;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Base64;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author Sumanpc
@@ -51,6 +53,10 @@ public class User_registration extends HttpServlet {
                 zip_code= request.getParameter("zip_code");
                 email= request.getParameter("email");
                 Phone_no= request.getParameter("Phone_no");
+                Date date= new Date();
+                long time = date.getTime();
+               //String cif_no = String.valueOf(Math.random()).replaceAll("^\\d*\\.","");
+                //Password = Password.substring(Password.indexOf("."));
                 
                 UserRegistrationGetSet ugs = new UserRegistrationGetSet();
                   ugs.setActype(actype);
@@ -70,16 +76,25 @@ public class User_registration extends HttpServlet {
                   ugs.setZip_code(zip_code);
                   ugs.setEmail(email);
                   ugs.setPhone_no(Phone_no);
-                  ugs.setType("Banker");
+                  ugs.setTime(time);
+                  ugs.setType("user");
+                  HttpSession session =request.getSession();
+                  session.setAttribute("mobile",Phone_no);
+                  //time=Long.parseLong("1580024318694");
                   Databass d1 = new Databass();
-                  int x = d1.insertuser_Details(ugs);
+                  int x=d1.insertuser_Details(ugs);
                   if(x==1)
                   {
-                       response.sendRedirect("Bankers/AcForNew_user.jsp?mas=done");
+                      String timeVal=String.valueOf(time);
+                      String msg=Base64.getEncoder().encodeToString(timeVal.getBytes());
+                        //String msg= org.apache.tomcat.util.codec.binary.Base64.encodeBase64String(timeVal.getBytes());
+                       response.sendRedirect("Bankers/NewUserDocUpload.jsp?msg="+msg);
                   }
                   else
                   {
-                      response.sendRedirect("Bankers/AcForNew_user.jsp?Error=2");
+//                      String timeVal=String.valueOf(time);
+//                      String msg=Base64.getEncoder().encodeToString(timeVal.getBytes());
+                      response.sendRedirect("Bankers/AcForNew_user.jsp?Error=");
                   }
         }
         catch(Exception ex)

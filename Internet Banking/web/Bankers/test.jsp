@@ -14,7 +14,7 @@
     <body>
        
 	<h3>Register Account</h3>
-	<form method="post" action="../Testserv" enctype="multipart/form-data">
+	<form method="post" action="../Userdocument1" enctype="multipart/form-data">
 		<table border="0" cellpadding="2" cellspacing="2">
 			<tr>
 				<td>CIF No</td>

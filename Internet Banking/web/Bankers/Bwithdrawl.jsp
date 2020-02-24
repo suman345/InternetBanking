@@ -1,4 +1,18 @@
 <!DOCTYPE html>
+<%
+    int err=0;
+        try{ 
+        
+        String msg=request.getParameter("msg");
+        if(msg.equals("error2"))
+        {
+            err=1;
+        }
+        }
+        catch(Exception ex){
+            
+        }
+ %>   
 <html>
 <head>
     <meta charset="utf-8">
@@ -19,9 +33,16 @@
     <!-- Font Awesome JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/solid.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script>
+       // 
+       function value()
+       {
+           document.getElementById('er').innerHTML="Account No Dose no Exits";
+       }
+    </script>    
 </head>
 
-<body>
+<body onload="<%if(err==1){out.print("value()");} %>">
 
     <div class="wrapper">
         <!-- Sidebar  -->
@@ -30,8 +51,9 @@
         <div id="content">
 
             <%@include file="pagefiles/Banker_navbar.jsp" %>
-            <form action="#" style="max-width:500px;margin:auto; margin-top: 30px;" id="dform">
+            <form action="../Withdrawa_userl" style="max-width:500px;margin:auto; margin-top: 30px;" id="dform" method="POST">
               <h2 id="heading">Customar Withdrawl</h2>
+               <div style="color:red;" id="er"> </div>
               <div class="input-container">
                 <input class="input-field inpc" type="text" placeholder="Account Number" id="acno" name="acno">
                   <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#val" id="viewBtn">Validate

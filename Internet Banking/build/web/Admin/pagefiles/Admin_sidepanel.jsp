@@ -28,13 +28,13 @@
                     <a href="#consumer" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Consumer</a>
                     <ul class="collapse list-unstyled" id="consumer">
                         <li>
-                            <a href="#">All</a>
+                            <a href="UserDashboardAll.jsp">All</a>
                         </li>
                         <li>
-                            <a href="#">Approved</a>
+                            <a href="UserDashboardApp.jsp">Approved</a>
                         </li>
                         <li>
-                            <a href="#">Rejected</a>
+                            <a href="UserDashboardRej.jsp">Rejected</a>
                         </li>
                     </ul>
                 </li>

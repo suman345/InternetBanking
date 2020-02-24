@@ -1,0 +1,18 @@
+SMAP
+UserMyprofile_jsp.java
+JSP
+*S JSP
+*F
++ 0 UserMyprofile.jsp
+User/UserMyprofile.jsp
++ 1 User_sidepanel.jsp
+User/Pagefiles/User_sidepanel.jsp
++ 2 User_navbar.jsp
+User/Pagefiles/User_navbar.jsp
+*L
+5,22:50
+5#1,66:72
+26#0,3:138
+5#2,25:141
+28#0,230:166
+*E

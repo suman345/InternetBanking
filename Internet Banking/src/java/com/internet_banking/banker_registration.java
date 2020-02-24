@@ -41,7 +41,9 @@ public class Banker_Registration extends HttpServlet {
            MobNo= request.getParameter("MobNo");
            Aadhar= request.getParameter("Aadhar");
            Pan= request.getParameter("Pan");
-           Password= request.getParameter("email");
+           //Password= request.getParameter("email");
+           Password=Random.getAlphaNumericString();
+           
            //Password = String.valueOf(Math.random()).replaceAll("^\\d*\\.","");
            //Password = Password.substring(Password.indexOf("."));
            BankersRegistrationGetSet bgs=new BankersRegistrationGetSet();
@@ -60,9 +62,14 @@ public class Banker_Registration extends HttpServlet {
            int x=d1.InsertBankerdetails(bgs);
            if(x==1)
            {
+               String to =bgs.getEmail();
+               String subject="Confirmation internet banking NLDB";
+               String msg="Dear Customer..  confirmed your apply internet banking. your user id:"+bgs.getEmail()+" And Password :"+bgs.getPassword();
+                Mailer.send(to, subject, msg); 
                int y=d1.banker_login(bgs);
                if(y==1)
-               {
+               { 
+                  
                     response.sendRedirect("Login/Login.jsp?mas=done");
                }
                else

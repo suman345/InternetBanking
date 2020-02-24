@@ -28,6 +28,54 @@
         <servlet-name>Testserv</servlet-name>
         <servlet-class>com.internet_banking.Testserv</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>User_doc1</servlet-name>
+        <servlet-class>com.internet_banking.User_doc1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>User_doc2</servlet-name>
+        <servlet-class>com.internet_banking.User_doc2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Userdoc3</servlet-name>
+        <servlet-class>com.internet_banking.Userdoc3</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewUserDoc</servlet-name>
+        <servlet-class>com.internet_banking.NewUserDoc</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UploadServlet</servlet-name>
+        <servlet-class>com.internet_banking.UploadServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Userdocument1</servlet-name>
+        <servlet-class>com.internet_banking.Userdocument1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserRegister</servlet-name>
+        <servlet-class>com.internet_banking.UserRegister</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Forgot_password</servlet-name>
+        <servlet-class>com.internet_banking.Forgot_password</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ForgotPassword</servlet-name>
+        <servlet-class>com.internet_banking.ForgotPassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Deposit_user</servlet-name>
+        <servlet-class>com.internet_banking.Deposit_user</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Withdrawa_userl</servlet-name>
+        <servlet-class>com.internet_banking.Withdrawa_userl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Change_password_user</servlet-name>
+        <servlet-class>com.internet_banking.Change_password_user</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Lets_Go</servlet-name>
         <url-pattern>/Lets_Go</url-pattern>
@@ -45,8 +93,32 @@
         <url-pattern>/User_registration</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Testserv</servlet-name>
-        <url-pattern>/Testserv</url-pattern>
+        <servlet-name>Userdocument1</servlet-name>
+        <url-pattern>/Userdocument1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserRegister</servlet-name>
+        <url-pattern>/UserRegister</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Forgot_password</servlet-name>
+        <url-pattern>/Forgot_password</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForgotPassword</servlet-name>
+        <url-pattern>/ForgotPassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Deposit_user</servlet-name>
+        <url-pattern>/Deposit_user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Withdrawa_userl</servlet-name>
+        <url-pattern>/Withdrawa_userl</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Change_password_user</servlet-name>
+        <url-pattern>/Change_password_user</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

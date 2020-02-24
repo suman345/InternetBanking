@@ -1,0 +1,46 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 23, 2020, 8:32:41 PM
+    Author     : Sumanpc
+*/
+
+.register .nav-tabs .nav-link:hover{
+    border: none;
+}
+.register{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 3%;
+    padding: 3%;
+    border-radius: 2.5rem;
+}
+.nav-tabs .nav-link{
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: white;
+}
+
+
+.table {
+    width: auto;
+    font-size: 10px;
+    font-family: sans-serif;
+    color: aqua;
+    text-align: center;
+}
+
+.register-heading {
+    margin: 10px;
+    color: aqua;
+    font-size: 30px;
+}
+.card {
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    border-radius: 30px;
+    border-bottom-color: black;
+    box-shadow: 3px 3px 3px aqua;
+}

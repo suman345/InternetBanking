@@ -89,7 +89,7 @@
       </div>
 
       <div class="intro-info">
-          <h2>Here you can get<br>next level of<br><span>DIGITAL BANKING!</span></h2>
+          <h2>Your next level of<br><span>DIGITAL BANKING!</span><br>is waiting for you</h2>
         <div>
             <a href="Login/Login.jsp" class="btn-get-started scrollto">login Here</a>
         </div>

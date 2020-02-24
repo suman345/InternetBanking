@@ -3,7 +3,21 @@
     Created on : 02-Nov-2019, 10:22:44
     Author     : Soumen-Pc
 --%>
+<%
+    int err=0;
+    try{
+            String msg=request.getParameter("msg");
+            if(msg.equals("error1"))
+            {
+                err = 1;
+            }
+        }
+    catch(Exception ex)
+    {
+        
+    }
 
+ %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,9 +30,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="../Css/Login_css/Login_css.css">
+    <script>
+        function value()
+        {
+            document.getElementById('msg').innerHTML="The user id or password that you've entered is incorrect.";
+        }
+         function gfg_Run() { 
+                document.addEventListener('contextmenu',  
+                        event => event.preventDefault()); 
+                alert("Right click disabled"); 
+            }
+            $('#email').bind("cut copy paste",function(e) {
+     e.preventDefault();
+ });
+    </script>
         <title>login</title>
     </head>
-    <body>
+    <body onload="<% if(err==1){out.print("value()");}%>" oncontextmenu="gfg_Run()">
        <nav class="navbar navbar-expand-lg">
   <a class="navbar-brand" href="#">NDBL Bank</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +65,7 @@
         Sign Up
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#"><span><i class="fas fa-user"></i></span> Customer</a>
+          <a class="dropdown-item" href="../User/UserRegister.jsp"><span><i class="fas fa-user"></i></span> Customer</a>
         <a class="dropdown-item" href="../Bankers/Banker_Registration.jsp"><span><i class="fas fa-user-tie"></i></span> Banker</a>
       </div>
     </div>
@@ -46,20 +74,22 @@
     
         <form action="../Mainlogin" method="POST" style="max-width:500px;margin:auto; margin-top: 100px;">
       <h1 id="heading"><i class="fas fa-sign-in-alt fa-2x"></i>Login Here</h1>
+      
       <div class="input-container">
         <i class="fa fa-envelope icon"></i>
-        <input class="input-field" type="text" placeholder="Username" name="email" id="email">
+        <input class="input-field" type="text" placeholder="Username" name="email" id="email" onCut="return false"   oncopy="return false" >
         <div> <span style="color:aqua;" id="emp2"></span></div>
       </div>
       <div class="input-container">
         <i class="fa fa-key icon"></i>
-        <input class="input-field" type="password" placeholder="Password" name="psw" id="password">
+        <input class="input-field" type="password" placeholder="Password" name="psw" id="password" onCut="return false" oncopy="return false">
         <div> <span style="color:aqua;" id="emp3"></span></div>
       </div>
+      <div id="msg" style="color: red; " ></div>
       <div class="container">
           <div class="row">
               <div class="col-md-7">
-                   <p id="forgetpw">Have you forgot your password ? >> <a href="#" style="color: black; font-size: 14px; font-style: italic; font-synthesis: weight;">Click here</a></p> 
+                  <p id="forgetpw">Have you forgot your password ? >> <a href="../Forgot_password/Forgot.jsp" style="color: black; font-size: 14px; font-style: italic; font-synthesis: weight;">Click here</a></p> 
               </div>
               <div class="col-md-5 text-right">
       <button type="submit" class="btn btn-lg " id="Loginbtn" onclick="return login_validation();">Login</button>
