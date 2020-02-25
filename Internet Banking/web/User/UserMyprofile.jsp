@@ -1,4 +1,4 @@
-<%-- 
+p<%-- 
     Document   : User_Home
     Created on : Feb 15, 2020, 8:32:14 PM
     Author     : Sumanpc
@@ -116,105 +116,105 @@
                                             <div role="tabpanel" class="tab-pane fade show active" id="acdet">
                                                 <div class="row">
                                                     <div class="col-md-3">
-                                                        <label>CIF Number:</label>
-                                                        <label><%= rs.getString("cif_no")%></label>
+                                                        <label>CIF Number</label>
+                                                        
                                                         
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="cif1"></p>
+                                                        <p id="cif1" style="color: #000aa3;"><%= rs.getString("cif_no")%></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <label>Account Number</label>
-                                                        <label><%= rs.getString("account_no")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="acno1"></p>
+                                                        <p id="acno1"><label><%= rs.getString("account_no")%></label></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <label>Branch Name</label>
-                                                        <label><%= rs.getString("branch_name")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="brnm"></p>
+                                                        <p id="brnm"><label><%= rs.getString("branch_name")%></label></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <label>IFSC Code</label>
-                                                        <label><%= rs.getString("cif_no")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="IFSC1"></p>
+                                                        <p id="IFSC1"><label>NLDB011220</label></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <label>MICR Code</label>
-                                                        <label><%= rs.getString("cif_no")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="MICR"></p>
+                                                        <p id="MICR"><label>988776655443</label></p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div role="tabpanel" class="tab-pane fade" id="profl">
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-3">
                                                         <label>Name</label>
-                                                        <label><%= rs.getString("first_name")%></label>
-                                                        <label><%= rs.getString("last_name")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="name1"></p>
+                                                        <p id="name1"><label><%= rs.getString("first_name")%></label>
+                                                        <label><%= rs.getString("last_name")%></label></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-3">
                                                         <label>Father's Name</label>
-                                                        <label><%= rs.getString("father_name")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="ftnm1"></p>
+                                                        <p id="ftnm1"><label><%= rs.getString("father_name")%></label></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-3">
                                                         <label>Date of Birth</label>
-                                                        <label><%= rs.getString("dob")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="dob1"></p>
+                                                        <p id="dob1"><label><%= rs.getString("dob")%></label></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-3">
                                                         <label>Gender</label>
-                                                        <label><%= rs.getString("gender")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="gen1"></p>
+                                                        <p id="gen1"><label><%= rs.getString("gender")%></label></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-3">
                                                         <label>Occupation</label>
-                                                        <label><%= rs.getString("accupation")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="occu1"></p>
+                                                        <p id="occu1"><label><%= rs.getString("accupation")%></label></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-3">
                                                         <label>Annual Income</label>
-                                                        <label><%= rs.getString("annual_income")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="anin"></p>
+                                                        <p id="anin"><label><%= rs.getString("annual_income")%></label></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -222,55 +222,55 @@
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <label>Mobile Number</label>
-                                                        <label><%= rs.getString("phone_on")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="mob1"></p>
+                                                        <p id="mob1"><label><%= rs.getString("phone_on")%></label></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <label>Email</label>
-                                                        <label><%= rs.getString("email")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="em1"></p>
+                                                        <p id="em1"><label><%= rs.getString("email")%></label></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <label>Locality</label>
-                                                        <label><%= rs.getString("locality")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="lcl"></p>
+                                                        <p id="lcl"><label><%= rs.getString("locality")%></label></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <label>District</label>
-                                                        <label><%= rs.getString("district")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="dis"></p>
+                                                        <p id="dis"><label><%= rs.getString("district")%></label></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <label>State</label>
-                                                        <label><%= rs.getString("state")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="st1"></p>
+                                                        <p id="st1"><label><%= rs.getString("state")%></label></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3 ">
                                                         <label>Country</label>
-                                                        <label><%= rs.getString("country")%></label>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="cntry"></p>
+                                                        <p id="cntry"><label><%= rs.getString("country")%></label></p>
                                                     </div>
                                                 </div>
                                             </div>

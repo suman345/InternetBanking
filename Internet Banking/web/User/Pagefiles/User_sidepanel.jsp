@@ -37,6 +37,18 @@
                         <i class="fas fa-file-alt"></i>
                         View Statement
                     </a>
+                    <a href="#fnd" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="text-align: center;">
+                        <i class="fas fa-random"></i>
+                        Fund Transfer
+                    </a>
+                    <ul class="collapse list-unstyled" id="fnd">
+                        <li>
+                            <a href="#" style="text-align: center;"><i class="fas fa-arrow-alt-circle-right"></i>Within Bank</a>
+                        </li>
+                        <li>
+                            <a href="#" style="text-align: center;"><i class="fas fa-arrow-circle-left"></i>With Other Bank</a>
+                        </li>               
+                    </ul>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="text-align: center;">
                         <i class="fas fa-dolly-flatbed"></i>
                         Services

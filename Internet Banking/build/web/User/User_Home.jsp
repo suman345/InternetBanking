@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="alert alert-warning alert-dismissible" role="alert">
                         <button type="button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);" class="close" data-dismiss="alert"><span aria-hidden="true">×</span></button>
-                        <marquee><p style="font-family: Lucida Handwriting; font-size: 18pt; color: blueviolet;">NLDB Bank never asks for confidential information sush as PIN and OTP from customers. Any such call can be made only by a fraudster. Please do not share personal information.</p></marquee>
+                        <marquee><p style="font-family: serif; font-size: 20pt; color: #000aa3;">NLDB Bank never asks for confidential information such as PIN or OTP from customers. Any such call can be made only by a fraud. Please do not share any personal information.</p></marquee>
                     </div>
                     <%
                         try{
@@ -41,7 +41,7 @@
                             if(rs.next())
                             {
                         %>
-                        <div><h2 id="wc" style="color: red">hi&nbsp;<%=rs.getString("first_name") %>&nbsp;&nbsp;<%= rs.getString("last_name")%></h2></div>
+                        <div><h2 id="wc" style="color: aliceblue;">hiii...&nbsp;<%=rs.getString("first_name") %>&nbsp;&nbsp;<%= rs.getString("last_name")%></h2></div>
                 </div>
                         <%
                             }

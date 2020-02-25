@@ -50,13 +50,15 @@ public class Withdrawa_userl extends HttpServlet {
                        ResultSet rs = new Databass().userdetalisFetch(acno);
                        if(rs.next())
                        {
+                           String email=rs.getString("email");
                            int amount2=rs.getInt("amount");
                            int amount3=amount2-amount;
                            int rs1 = new Databass().user_Deposit(acno,amount3);
                            if(rs1==1)
                            {
+                               
                                 Databass d1 = new Databass();
-                                int x=d1.insertdepositdetalis(acno,amount,today,time, deposit);
+                                int x=d1.insertdepositdetalis(acno,amount,today,time, deposit,email);
                                 if(x==1)
                                 {
                                     String to=rs.getString("email");

@@ -3,6 +3,8 @@ package org.apache.jsp.User;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import com.internet_banking.Databass;
+import java.sql.ResultSet;
 
 public final class User_005fHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -49,6 +51,8 @@ public final class User_005fHome_jsp extends org.apache.jasper.runtime.HttpJspBa
 
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<html>\n");
       out.write("\n");
       out.write("<head>\n");
@@ -61,7 +65,7 @@ public final class User_005fHome_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css\">\n");
       out.write("    <link rel=\"stylesheet\" href=\"../Css/User_css/User_Home.css\">    \n");
       out.write("    <script defer src=\"https://use.fontawesome.com/releases/v5.0.13/js/solid.js\"></script>\n");
-      out.write("    <script defer src=\"https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js\"></script>\n");
+      out.write("    <script defer src=\"https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js\"></script>   \n");
       out.write("    \n");
       out.write("</head>\n");
       out.write("<body>\n");
@@ -162,7 +166,39 @@ public final class User_005fHome_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                </div>\n");
       out.write("            </nav>");
       out.write("\n");
-      out.write("            <h1> Wellcome Suman </h1>\n");
+      out.write("            <div class=\"container\">\n");
+      out.write("                <div class=\"row\">\n");
+      out.write("                    <div class=\"alert alert-warning alert-dismissible\" role=\"alert\">\n");
+      out.write("                        <button type=\"button\" onclick=\"this.parentNode.parentNode.removeChild(this.parentNode);\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">×</span></button>\n");
+      out.write("                        <marquee><p style=\"font-family: Lucida Handwriting; font-size: 18pt;\">NLDB Bank never asks for confidential information sush as PIN and OTP from customers. Any such call can be made only by a fraudster. Please do not share personal information.</p></marquee>\n");
+      out.write("                    </div>\n");
+      out.write("                    ");
+
+                        try{
+                            
+                            String email;
+                            email=session.getAttribute("bankerid").toString();
+                            ResultSet rs = new Databass().user_welcome(email);
+                            if(rs.next())
+                            {
+                        
+      out.write("\n");
+      out.write("                        <div><h2 id=\"wc\" style=\"color: aliceblue;\">hiii...&nbsp;");
+      out.print(rs.getString("first_name") );
+      out.write("&nbsp;&nbsp;");
+      out.print( rs.getString("last_name"));
+      out.write("</h2></div>\n");
+      out.write("                </div>\n");
+      out.write("                        ");
+
+                            }
+                        }catch(Exception ex){
+
+}
+                            
+      out.write("\n");
+      out.write("            </div>\n");
+      out.write("            \n");
       out.write("        </div>\n");
       out.write("    </div>\n");
       out.write("    <script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"></script>\n");

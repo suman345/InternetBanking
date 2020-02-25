@@ -562,13 +562,13 @@ public class Databass {
       }
   }
   //This Function made user transaction histyoy insert
-  int insertdepositdetalis(String acno,Integer amount,String today,String time,String deposit)
+  int insertdepositdetalis(String acno,Integer amount,String today,String time,String deposit,String email)
   {
       try{
           if(isConnected())
           {
               //String qur = "insert into user_depwithhistory(account_no,date,amount,deposit_or_withdrawl)values(?,?,?,?)";
-              String qur="INSERT INTO `user_depwithhistory`( `account_no`, `date`, `amount`,`time`, `deposit_or_withdrawl`) VALUES (?,?,?,?,?)";
+              String qur="INSERT INTO `user_depwithhistory`( `account_no`, `date`, `amount2`,`time`, `deposit_or_withdrawl`,`email`) VALUES (?,?,?,?,?,?)";
               smt=conn.prepareStatement(qur);
               smt.setString(1, acno);      
               smt.setString(2,today );
@@ -576,6 +576,7 @@ public class Databass {
               smt.setString(4,time);
               //setDate(4, (java.sql.Date) temp.getOrigionalAirDate());
               smt.setString(5,deposit);
+              smt.setString(6, email);
               smt.execute();
               return 1;
               
@@ -698,6 +699,48 @@ public class Databass {
       catch(Exception ex)
       {
         return null;
+      }
+  }
+  public ResultSet balance_fatch(String email)
+  {
+      try{
+          if(isConnected())
+          {
+              String qur="SELECT * from login_details a,new_user_registration b ,user_document c WHERE a.username=b.email AND b.cif_no=c.cif_no AND b.email=?";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1,email);
+              rs=smt.executeQuery();
+              return rs;
+          }
+          else
+          {
+              return null;
+          }
+      }
+      catch(Exception ex)
+      {
+          return null;
+      }
+  }
+  public ResultSet five_trasaction(String email1)
+  {
+      try{
+          if(isConnected())
+          {
+              String qur="SELECT * from login_details a,new_user_registration b,user_document c,user_depwithhistory d WHERE a.username=b.email and b.cif_no=c.cif_no and c.account_no=d.account_no AND d.email=?";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1, email1);
+              rs=smt.executeQuery();
+              return rs;
+          }
+          else
+          {
+              return null;
+          }
+      }
+      catch(Exception ex)
+      {
+          return null;
       }
   }
 //    ResultSet checkUserRegister() {

@@ -3,6 +3,8 @@
     Created on : Feb 23, 2020, 8:25:53 PM
     Author     : Sumanpc
 --%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="com.internet_banking.Databass"%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -40,9 +42,21 @@
                             <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h6 class="register-heading">Your Current Account Balance Is:</h6>
                                 <div class="card">
+                                    <%
+                                        try{
+                                            String email=session.getAttribute("bankerid").toString();
+                                            ResultSet rs = new Databass().balance_fatch(email);
+                                            if(rs.next())
+                                            {
+                                    %>
                                 <p style="text-align: center; color: blanchedalmond; font-size: 30px; font-family: serif;">INR.</p>
-                                <p id="blnc" name="blnc" style="color: black; text-align: center; font-family:fantasy;">32532</p>
+                                <p id="blnc" name="blnc" style="color: black; text-align: center; font-family:fantasy;"><%=rs.getString("amount")%></p>
                                 </div>
+                                    <%
+                                            }
+                                            }catch(Exception ex){}
+                                     %>
+                                
                             </div>
                             <div class="tab-pane fade show text-align form-new" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <h6  class="register-heading">Your last 5 transactions are</h6>
@@ -52,42 +66,29 @@
                                       <thead>
                                         <tr>
                                           <th scope="col">Date</th>
-                                          <th scope="col">Transaction Detail</th>
+                                          <th scope="col">Time</th>
                                           <th scope="col">Amount</th>
                                           <th scope="col">Transaction type</th>
                                         </tr>
                                       </thead>
                                       <tbody>
-                                        <tr>
-                                          <th scope="row">1</th>
-                                          <td>Mark</td>
-                                          <td>Otto</td>
-                                          <td>jyu</td>
-                                        </tr>
-                                        <tr>
-                                          <th scope="row">2</th>
-                                          <td>Jacob</td>
-                                          <td>Thornton</td>
-                                          <td>hthf</td>
-                                        </tr>
-                                        <tr>
-                                          <th scope="row">3</th>
-                                          <td>Larry</td>
-                                          <td>the Bird</td>
-                                          <td>ghhfhj</td>
-                                        </tr>
-                                        <tr>
-                                          <th scope="row">4</th>
-                                          <td>Larry</td>
-                                          <td>the Bird</td>
-                                          <td>ghhfhj</td>
-                                        </tr>
                                           <tr>
-                                          <th scope="row">5</th>
-                                          <td>Larry</td>
-                                          <td>the Bird</td>
-                                          <td>ghhfhj</td>
-                                        </tr>
+                                              <%
+                                                  try{
+                                                        String email1=session.getAttribute("bankerid").toString();
+                                                        ResultSet rs1 = new Databass().five_trasaction(email1);
+                                                        while(rs1.next())
+                                                        {
+                                              %>
+                                              <td><%= rs1.getString("date")%></td>
+                                              <td><%= rs1.getString("time")%></td>
+                                              <td><%= rs1.getString("amount2")%></td>
+                                              <td><%= rs1.getString("deposit_or_withdrawl")%></td>
+                                          </tr>
+                                          <%
+                                                        }
+                                                      }catch(Exception ex){}
+                                              %>
                                       </tbody>
                                     </table>
                                 </div>

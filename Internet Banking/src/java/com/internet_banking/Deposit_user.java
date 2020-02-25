@@ -53,6 +53,7 @@ public class Deposit_user extends HttpServlet {
                 ResultSet rs = new Databass().userdetalisFetch(acno);
                 if(rs.next())
                 {
+                    String email=rs.getString("email");
                     int amount2=rs.getInt("amount");
                                     //out.println(amount2);
                     int amount3 = amount2+amount;
@@ -61,7 +62,7 @@ public class Deposit_user extends HttpServlet {
                     if(rs1 == 1)
                     {
                         Databass d1 = new Databass();
-                        int x=d1.insertdepositdetalis(acno,amount,today,time, deposit);
+                        int x=d1.insertdepositdetalis(acno,amount,today,time, deposit,email);
                         if(x==1)
                         {
                             String to=rs.getString("email");

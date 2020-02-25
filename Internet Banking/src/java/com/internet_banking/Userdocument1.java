@@ -90,7 +90,7 @@ public class Userdocument1 extends HttpServlet {
                    // out.println("done");
                      SendMessage s= new SendMessage();
                   
-                     s.sendCampaign("B6J3GWWF1MM0W75F4PFNIB861AGN7QHK", "1YZDJV6SWZBM2V9Q", "stage",mob, " Your Account has been Created : Your CIF Number is"+cif+" .And Account no is "+time, "sumandhara345@gmail.com");
+                     //s.sendCampaign("B6J3GWWF1MM0W75F4PFNIB861AGN7QHK", "1YZDJV6SWZBM2V9Q", "stage",mob, " Your Account has been Created : Your CIF Number is"+cif+" .And Account no is "+time, "sumandhara345@gmail.com");
                     response.sendRedirect("Bankers/Banker_Home.jsp?msg=done");
                 }
                 else
