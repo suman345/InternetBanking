@@ -61,8 +61,16 @@
                 </div>
                <div style="color:red;" id="err2"> </div>
                  <div class="input-container">
-                <input class="input-field" type="radio" id="actype" name="actype"><p style="color: aliceblue;">Savings</p>
-                <input class="input-field" type="radio" id="actype" name="actype"><p style="color: aliceblue;">Current</p>
+<!--                <input class="input-field" type="radio" id="actype" name="actype"><p style="color: aliceblue;">Savings</p>
+                <input class="input-field" type="radio" id="actype" name="actype"><p style="color: aliceblue;">Current</p>-->
+                <label class="radio inline"> 
+                                                    <input type="radio" name="actype" id="gender"value="savings" checked>
+                                                    <span> savings </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="actype" id="gender" value="current">
+                                                    <span> current </span> 
+                                                </label>
                 </div>
                <div style="color:red;" id="err3"> </div>
                <button type="submit" class="btn btn-MD" id="DepBtn" onclick=" return deposit();">Deposite</button>

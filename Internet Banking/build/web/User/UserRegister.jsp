@@ -22,7 +22,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <link rel="stylesheet" href="../Css/Banker_css/Banker_Registration.css">
+    <link rel="stylesheet" href="../Css/User_css/User_register.css">
     <script src="../Java_Script/User_js1/User_Register.js"></script>
     <script>
         function value()
@@ -62,20 +62,20 @@
       <div class="input-container">
         <input class="input-field" type="text" title="CIF Number" placeholder="CIF Number" id="cifn" name="cifno">    
         </div>
-      <div> <span style="color:aqua;" id="us1"></span></div>
+      <div style="margin-bottom: 10px; margin-left: 75px;"> <span style="color:aqua;" id="us1"></span></div>
       <div class="input-container">
         <input class="input-field" type="text" title="Account Number" placeholder="Account Number" id="acn" name="accno">    
         </div>
-      <div> <span style="color:aqua;" id="us2"></span></div>
+      <div style="margin-bottom: 10px; margin-left: 75px;"> <span style="color:aqua;" id="us2"></span></div>
       <div class="input-container">
         <input class="input-field" type="text" title="Mobile Number" placeholder="Registered mobile Number" id="mbn" name="mbno">    
         </div>
-      <div> <span style="color:aqua;" id="us3"></span></div>
+      <div style="margin-bottom: 10px; margin-left: 75px;"> <span style="color:aqua;" id="us3"></span></div>
       <div class="input-container">
         <input class="input-field" type="text" title="Email" placeholder="Email" id="eml" name="email">    
         </div>
       <div id="err1" style="position:relative;color:red;left:210px" ></div>
-        <div> <span style="color:aqua;" id="us4"></span></div>
+      <div style="margin-bottom: 10px; margin-left: 75px;"> <span style="color:aqua;" id="us4"></span></div>
         <div>
             <input type="submit" class="btn" id="RegBtn" value="Register" onclick="return user_register();">
       </div>

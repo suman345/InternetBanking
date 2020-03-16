@@ -1,0 +1,18 @@
+SMAP
+ciftest_jsp.java
+JSP
+*S JSP
+*F
++ 0 ciftest.jsp
+Bankers/ciftest.jsp
++ 1 Banker_sidepanel.jsp
+Bankers/pagefiles/Banker_sidepanel.jsp
++ 2 Banker_navbar.jsp
+Bankers/pagefiles/Banker_navbar.jsp
+*L
+5,31:50
+1#1,118:81
+35#0,5:198
+1#2,24:203
+39#0,196:227
+*E

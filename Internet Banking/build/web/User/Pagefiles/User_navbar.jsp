@@ -18,7 +18,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#" style="color: aliceblue;"><i class="fas fa-sync fa-lg"></i></a>
+                                <a class="nav-link" href="#" style="color: aliceblue;"><i class="fas fa-bell fa-lg"></i></a>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link" href="../Logout.jsp" style="color: aliceblue;"><i class="fas fa-sign-out-alt fa-lg"></i></a>

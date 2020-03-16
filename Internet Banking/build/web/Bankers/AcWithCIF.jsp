@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -8,7 +7,7 @@
     <title>Internet Banking</title>
 
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <!-- Our Custom CSS -->
      <link rel="stylesheet" href="../Css/Banker_css/BankerHome.css">
@@ -18,12 +17,18 @@
 
     <!-- Font Awesome JS -->
     <script src="../Java_Script/Banker_js/AcWithCIF.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/solid.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+    <script>
+        function acwith_nextpage()
+        {
+           var cif= document.getElementById('cif').value;
+            window.location="Acwithcif_nextpage.jsp?cif="+cif;
+        }
+    </script>    
 </head>
-
 <body>
-
     <div class="wrapper">
         <!-- Sidebar  -->
         <%@include file="pagefiles/Banker_sidepanel.jsp" %>
@@ -37,10 +42,13 @@
               <div class="input-container">
                 <input class="input-field inp" type="text" placeholder="Enter CIF Number" id="cif" name="cif">
                 </div>
-              <button type="submit" class="btn btn-md" id="DepBtn" data-target="#s" onclick="return cnf_number();">Find</button>
+              <button type="button" class="btn btn-md" onclick="acwith_nextpage();">Find</button>
+               
+               
                  <div class="forget_part"><p id="fgttxt">forgot CIF number?? 
                     <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#fgt" id="viewBtn">ClickMe
                   </button>
+                         
                   <div class="modal fade" id="fgt">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -50,12 +58,11 @@
                             </div>
                             <div class="modal-body">
                                 <div>
-                               <form action="#">
-                                   <div class="input-container">
-                                    <input class="input-field inp" type="text" placeholder="Enter A/C Number" id="acno" name="acno">
-                                    <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#srchcif" id="srch" onclick="return ac_number();">Search</button>        
+                                   <div class="input-container" id="inputcon">
+                                    <input class="input-field inp" type="text" placeholder="Enter A/C Number" id="accno" name="accno">
+                                    <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#srchcif" id="Ac_su">Search</button>        
                                    </div>
-                                </form>
+                             
                                 </div>
                             </div>
                         </div>
@@ -70,24 +77,42 @@
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
-                            <p id="acnodisplay">54541646</p>
+                            <p id="acnodisplay"></p>
                             <button type="button" class="btn" onclick="copyToClipboard('#acnodisplay')">Copy CIF</button>
                         </div>
                     </div>
                 </div>
                 </div>
-              </form>
+             </form>
         </div>
     </div>
-
     <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>-->
     <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script>
+       $(document).ready(function(){
+  
+        $("#Ac_su").click(function() {
+          var cif=$("#accno").val();
+         
+          $.ajax({
+             type:'post', 
+             url:'http://localhost:8084/Internet_Banking/Bankers/Acwithcif_ajax.jsp',
+             data:{cif:cif},
+             success:function(f){
+             // $('#fgt').remove();   
+              $('#acnodisplay').html(f);  
+             console.log(f);
+             }
+          });
+        });
+      });
+    </script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -112,5 +137,4 @@
 }  
     </script>
 </body>
-
 </html>

@@ -43,6 +43,7 @@ public class Deposit_user extends HttpServlet {
             int amount;
             acno= request.getParameter("acno");
             amount = Integer.parseInt(request.getParameter("deposite"));
+          String  actype = request.getParameter("actype");
             Date date= new Date();
                 //long time = date.getTime();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy");
@@ -50,7 +51,7 @@ public class Deposit_user extends HttpServlet {
             sdf = new SimpleDateFormat("hh:mm:ss a");
             String time=sdf.format(date);
             String deposit=("Credit");
-                ResultSet rs = new Databass().userdetalisFetch(acno);
+                ResultSet rs = new Databass().userdetalisFetch(acno,actype);
                 if(rs.next())
                 {
                     String email=rs.getString("email");
@@ -62,13 +63,13 @@ public class Deposit_user extends HttpServlet {
                     if(rs1 == 1)
                     {
                         Databass d1 = new Databass();
-                        int x=d1.insertdepositdetalis(acno,amount,today,time, deposit,email);
+                        int x=d1.insertdepositdetalis(acno,amount,today,time,deposit,email,actype);
                         if(x==1)
                         {
-                            String to=rs.getString("email");
+                           /* String to=rs.getString("email");
                             String subject="Deposit Ammount";
                             String mag="Dear Customer.. your credit Amount:" + amount+"Your Total Amount is"+amount3;
-                            Mailer.send(to, subject, mag);
+                            Mailer.send(to, subject, mag);*/
                             response.sendRedirect("Bankers/Banker_Home.jsp?msg=done");
                         }
                         else

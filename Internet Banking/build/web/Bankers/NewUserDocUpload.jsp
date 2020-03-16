@@ -23,7 +23,6 @@
 </head>
 
 <body>
-
     <div class="wrapper">
         <!-- Sidebar  -->
         <%@include file="pagefiles/Banker_sidepanel.jsp" %>
@@ -44,8 +43,7 @@
                             try
                             {
                                 long timeLong=Long.parseLong(time);
-                            
-                       
+
                     %>
                     <input type="text" class="form-control" id="fetchcif" name="cifno" value="<%=time%>" disabled="true">
                     <input type="hidden" class="form-control" id="h_fetchcif" name="h_cifno" value="<%=time%>">
@@ -91,6 +89,10 @@
                 <label class="custom-file-label" for="photo">Upload Photo*</label>
                  </div>
                 <div> <span style="color:aqua;" id="doc6"></span></div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="signature" name="signature">
+                    <label class="custom-file-label" for="signature">Signature*</label>
+                </div>
                 <button type="submit" class="btn btn-lg" id="UpldBtn" onclick="return user_document();">Deposite</button>
               </form>
         </div>

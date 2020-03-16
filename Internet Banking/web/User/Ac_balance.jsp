@@ -82,8 +82,8 @@
                                               %>
                                               <td><%= rs1.getString("date")%></td>
                                               <td><%= rs1.getString("time")%></td>
-                                              <td><%= rs1.getString("amount2")%></td>
-                                              <td><%= rs1.getString("deposit_or_withdrawl")%></td>
+                                              <td ><%= rs1.getString("amount2")%></td>
+                                              <td bgcolor="white"><%= (rs1.getString("deposit_or_withdrawl").equals("Credit"))?"<font color='green'>Credit</font>":"<font color='red'>Debit</font>"%></td>
                                           </tr>
                                           <%
                                                         }

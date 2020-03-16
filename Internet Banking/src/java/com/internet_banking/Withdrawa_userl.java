@@ -41,13 +41,14 @@ public class Withdrawa_userl extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
            String acno=request.getParameter("acno");
            int amount=Integer.parseInt(request.getParameter("deposite"));
+            String  actype = request.getParameter("actype");
            Date date= new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy");
             String today=sdf.format(date);
             sdf = new SimpleDateFormat("hh:mm:ss a");
             String time=sdf.format(date);
             String deposit=(" Debit");
-                       ResultSet rs = new Databass().userdetalisFetch(acno);
+                       ResultSet rs = new Databass().userdetalisFetch(acno,actype);
                        if(rs.next())
                        {
                            String email=rs.getString("email");
@@ -58,13 +59,13 @@ public class Withdrawa_userl extends HttpServlet {
                            {
                                
                                 Databass d1 = new Databass();
-                                int x=d1.insertdepositdetalis(acno,amount,today,time, deposit,email);
+                                int x=d1.insertdepositdetalis(acno,amount,today,time, deposit,email,actype);
                                 if(x==1)
                                 {
-                                    String to=rs.getString("email");
+                                   /* String to=rs.getString("email");
                                     String subject="Withdrawl Ammount";
                                     String mag="Dear Customer.. your Withdrawl Amount:" + amount+"Your Total Amount is"+amount3;
-                                    Mailer.send(to, subject, mag);
+                                    Mailer.send(to, subject, mag);*/
                                    response.sendRedirect("Bankers/Banker_Home.jsp?msg=done");
                                 }
                                 else
@@ -84,7 +85,7 @@ public class Withdrawa_userl extends HttpServlet {
         }
         catch(Exception ex)
         {
-            response.sendRedirect("Bankers/Bwithdrawl.jsp?msg=error2");
+            response.sendRedirect("Bankers/Bwithdrawl.jsp?msg=error5");
         }
     }
 

@@ -37,7 +37,7 @@ public class Userdocument1 extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
  
-    private static final String UPLOAD_DIR = "upload";
+    private static final String UPLOAD_DIR = "uploads";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -46,6 +46,7 @@ public class Userdocument1 extends HttpServlet {
             String setid=null;
             String setardno=null;
             String setphoto=null;
+            String setsing=null;
             String cif=request.getParameter("h_cifno");
 		//String Password(request.getParameter("doc"));
            //out.println(cif+"<br>");
@@ -54,6 +55,7 @@ public class Userdocument1 extends HttpServlet {
                 List<String> photos2 = User_helper2.uploadFile(UPLOAD_DIR, request);
                  String addno=request.getParameter("addno");
                  List<String> photos3 = User_helper3.uploadFile(UPLOAD_DIR, request);
+                 List<String> photos4 = User_helper4.uploadFile(UPLOAD_DIR, request);
                    Date date= new Date();
                 long time = date.getTime();
                 
@@ -70,6 +72,10 @@ public class Userdocument1 extends HttpServlet {
                 {
                    setphoto=s; 
                 }
+                for(String s:photos4)
+                {
+                    setsing=s;
+                }
                
                     
                 User_doc1getser doc1 =new User_doc1getser();
@@ -79,6 +85,7 @@ public class Userdocument1 extends HttpServlet {
                 doc1.setSetardno(setardno);
                 doc1.setAddno(addno);
                 doc1.setSetphoto(setphoto);
+                doc1.setSetsing(setsing);
                 doc1.setTime(time);
                 Databass d1=new Databass();
                 int x= d1.user_document(doc1);

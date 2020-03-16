@@ -85,7 +85,7 @@
         <input class="input-field" type="password" placeholder="Password" name="psw" id="password" onCut="return false" oncopy="return false">
         <div> <span style="color:aqua;" id="emp3"></span></div>
       </div>
-      <div id="msg" style="color: red; " ></div>
+      <div id="msg" style="color: aliceblue; background-color: #000aa3; width: 90%; text-align: center; font-family: sans-serif; border-radius: 20%; margin-bottom: 20px;"></div>
       <div class="container">
           <div class="row">
               <div class="col-md-7">

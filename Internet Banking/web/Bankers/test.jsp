@@ -14,21 +14,9 @@
     <body>
        
 	<h3>Register Account</h3>
-	<form method="post" action="../Userdocument1" enctype="multipart/form-data">
-		<table border="0" cellpadding="2" cellspacing="2">
-			<tr>
-				<td>CIF No</td>
-                                <td><input type="text" name="cifno" id="cifno" /></td>
-			</tr>
-			<tr>
-				<td valign="top">Document</td>
-				<td><input type="file" name="doc" /></td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td><input type="submit" value="Save" /></td>
-			</tr>
-		</table>
+	<form method="post" action="" enctype="multipart/form-data">
+		<table>
+                </table>
 	</form>
 
     </body>

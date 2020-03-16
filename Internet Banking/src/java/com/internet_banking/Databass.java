@@ -140,12 +140,12 @@ public class Databass {
             }
         }
         //This function is user_document and servlet
-        int user_document(User_doc1getser doc1)
+         int user_document(User_doc1getser doc1)
         {
             try{
                 if(isConnected())
                 {
-                    String qur="INSERT INTO `user_document`( `cif_no`, `identification_proof`, `id_number`, `address_proof`, `document_no`, `photo`, `account_no`,`amount`) VALUES (?,?,?,?,?,?,?,?)";
+                    String qur="INSERT INTO `user_document`( `cif_no`, `identification_proof`, `id_number`, `address_proof`, `document_no`, `photo`,`signature`, `account_no`,`amount`) VALUES (?,?,?,?,?,?,?,?,?)";
                     smt=conn.prepareStatement(qur);
                     smt.setString(1, doc1.getCif());
                     smt.setString(2, doc1.getSetid());
@@ -153,8 +153,10 @@ public class Databass {
                     smt.setString(4, doc1.getSetardno());
                     smt.setString(5, doc1.getAddno());
                     smt.setString(6, doc1.getSetphoto());
-                    smt.setLong(7, doc1.getTime());
-                    smt.setInt(8, 0);
+                    
+                    smt.setString(7, doc1.getSetsing());
+                    smt.setLong(8, doc1.getTime());
+                    smt.setInt(9, 0);
                     smt.execute();
                     return 1;
                 }   
@@ -540,15 +542,16 @@ public class Databass {
       }
   }
   //userdetalisFetch function ....servlet this Deposit_user
-  public ResultSet userdetalisFetch( String acno)
+  public ResultSet userdetalisFetch( String acno,String actype)
   {
       try{
           if(isConnected()){
               //System.out.println("account number: "+acno);
                 // qur="select * from new_user_rejistration nu,user_document ud where nu.cif_no=ud.cif_no and ud.account_no=?";
-                String qur = "select a.*, b.* from new_user_registration a,user_document b where a.cif_no = b.cif_no and b.account_no="+acno+"";
+                String qur = "select a.*, b.* from new_user_registration a,user_document b where a.cif_no = b.cif_no and b.account_no=? and a.ac_type=?";
                 smt=conn.prepareStatement(qur);
-                //smt.setString(1, acno);
+                smt.setString(1, acno);
+                smt.setString(2,actype);
                 rs=smt.executeQuery();
                 return rs;
           }
@@ -562,13 +565,13 @@ public class Databass {
       }
   }
   //This Function made user transaction histyoy insert
-  int insertdepositdetalis(String acno,Integer amount,String today,String time,String deposit,String email)
+  int insertdepositdetalis(String acno,Integer amount,String today,String time,String deposit,String email,String actype)
   {
       try{
           if(isConnected())
           {
               //String qur = "insert into user_depwithhistory(account_no,date,amount,deposit_or_withdrawl)values(?,?,?,?)";
-              String qur="INSERT INTO `user_depwithhistory`( `account_no`, `date`, `amount2`,`time`, `deposit_or_withdrawl`,`email`) VALUES (?,?,?,?,?,?)";
+              String qur="INSERT INTO `user_depwithhistory`( `account_no`, `date`, `amount2`,`time`, `deposit_or_withdrawl`,`email`,`ac_type`) VALUES (?,?,?,?,?,?,?)";
               smt=conn.prepareStatement(qur);
               smt.setString(1, acno);      
               smt.setString(2,today );
@@ -577,6 +580,7 @@ public class Databass {
               //setDate(4, (java.sql.Date) temp.getOrigionalAirDate());
               smt.setString(5,deposit);
               smt.setString(6, email);
+              smt.setString(7, actype);
               smt.execute();
               return 1;
               
@@ -727,7 +731,7 @@ public class Databass {
       try{
           if(isConnected())
           {
-              String qur="SELECT * from login_details a,new_user_registration b,user_document c,user_depwithhistory d WHERE a.username=b.email and b.cif_no=c.cif_no and c.account_no=d.account_no AND d.email=?";
+              String qur="SELECT * FROM `user_depwithhistory` WHERE `email`=?  ORDER BY `id` DESC LIMIT 5 ";
               smt=conn.prepareStatement(qur);
               smt.setString(1, email1);
               rs=smt.executeQuery();
@@ -743,6 +747,255 @@ public class Databass {
           return null;
       }
   }
+  //this function signature search use Bwithdrawl_ajax.jsp
+  public ResultSet modelajax(String acno)
+  {
+      try{
+          if(isConnected())
+          {
+              String qur="SELECT * FROM `user_document` WHERE account_no=?";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1, acno);
+              rs=smt.executeQuery();
+              return rs;
+          }
+          else
+          {
+              return null;
+          }
+      }
+      catch(Exception ex){
+          return null;
+      }
+  }
+  //this function cif search use Acwithcif_ajax.jsp
+  public ResultSet acwith_cifajax(String acno)
+  {
+      try{
+          if(isConnected())
+          {
+             String qur="SELECT * FROM `user_document` WHERE account_no=?";
+             smt=conn.prepareStatement(qur);
+             smt.setString(1, acno);
+             rs=smt.executeQuery();
+             return rs;
+          }
+          else
+          {
+              return null;
+          }
+      }
+      catch(Exception ex){
+          return null;
+      }
+  }
+  public ResultSet acc_detalisfetch(String cif)
+  {
+      try{
+          if(isConnected())
+          {
+              String qur="SELECT * FROM `new_user_registration` where cif_no=?";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1,cif);
+              rs=smt.executeQuery();
+              return rs;
+          }
+          else
+          {
+              return null;
+          }
+      }
+      catch(Exception ex){
+          return null;
+      }
+  }
+  public ResultSet exiting_user(String cif)
+  {
+      try{
+          if(isConnected())
+          {
+              String qur="SELECT *  from new_user_registration a,user_document b WHERE a.cif_no=b .cif_no and a.cif_no=?";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1, cif);
+              rs=smt.executeQuery();
+              return rs;
+          }
+          else
+          {
+              return null;
+          }
+          
+      }
+      catch(Exception ex)
+      {
+          return null;
+      }
+  }
+  int inserExistingAc(String actype, String fname,String lname,String ftname, String dob,String gender,String occupation,String annual_income,String brname,String brcode,String country,String state,
+                    String district,String locality,String zip_code,String email,String Phone_no,String ci)
+  {
+      try{
+          if(isConnected())
+          {
+              String qur="INSERT INTO `new_user_registration`(`ac_type`, `first_name`, `last_name`, `father_name`, `dob`, `gender`, `accupation`, `annual_income`, `branch_name`, `branch_code`, `country`, `state`, `district`, `locality`, `zip_code`, `email`, `phone_on`, `cif_no`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1, actype);
+              smt.setString(2, fname);
+              smt.setString(3, lname);
+              smt.setString(4, ftname);
+              smt.setString(5, dob);
+              smt.setString(6, gender);
+              smt.setString(7, occupation);
+              smt.setString(8, annual_income);
+              smt.setString(9, brname);
+              smt.setString(10, brcode);
+              smt.setString(11, country);
+              smt.setString(12, state);
+              smt.setString(13, district);
+              smt.setString(14, locality);
+              smt.setString(15, zip_code);
+              smt.setString(16, email);
+              smt.setString(17, Phone_no);
+              smt.setString(18, ci); 
+              smt.execute();
+              return 1;
+          }
+          else
+          {
+              return 0;
+          }
+      }
+      catch(Exception ex)
+      {
+          return 0;
+      }
+  }
+  int insertExistAcdou(String cif,String ip,String in,String ap,String dn,String p,String s,Long time)
+  {
+      try{
+          if(isConnected())
+          {
+              String qur="INSERT INTO `user_document`(`cif_no`, `identification_proof`, `id_number`, `address_proof`, `document_no`, `photo`, `signature`, `account_no`, `amount`) VALUES (?,?,?,?,?,?,?,?,?)";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1, cif);
+              smt.setString(2, ip);
+              smt.setString(3, in);
+              smt.setString(4, ap);
+              smt.setString(5, dn);
+              smt.setString(6, p);
+              smt.setString(7, s);
+              smt.setLong(8, time);
+              smt.setInt(9,0);
+              smt.execute();
+              return 1;
+          }
+          else
+          {
+              return 0;
+          }
+      }
+      catch(Exception ex)
+      {
+          return 0;
+      }
+  }
+  public ResultSet accno_detalis(String acc)
+  {
+      try{
+          if(isConnected())
+          {
+             //String qur="SELECT * FROM `user_document` WHERE account_no=?";
+              String qur="select a.*, b.* from new_user_registration a,user_document b where a.cif_no = b.cif_no and b.account_no=?";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1, acc);
+              rs=smt.executeQuery();
+              return rs;
+          }
+          else
+          {
+              return null;
+          }
+      }
+      catch(Exception ex){
+          return null;
+      }
+  }
+  public int with_in_Btransfer(Integer tamount,String acc)
+  {
+      try{
+          if(isConnected())
+          {
+              String qur="UPDATE `user_document` SET `amount`=? where `account_no`=?";
+              smt=conn.prepareStatement(qur);
+              smt.setInt(1, tamount);
+              smt.setString(2, acc);
+              smt.execute();
+              return 1;
+          }
+          else
+          {
+              return 0;
+          }  
+      }
+      catch(Exception ex)
+      {
+          return 0;
+      }
+  }
+  public int insertdabit(String oacc,String today,String time, Integer amnt,String deposit,String email, String type)
+  {
+      try{
+          if(isConnected())
+          {
+              String qur="INSERT into user_depwithhistory(account_no,date,time,amount2,deposit_or_withdrawl,email,ac_type)values(?,?,?,?,?,?,?)";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1, oacc);
+              smt.setString(2, today);
+              smt.setString(3, time);
+              smt.setInt(4, amnt);
+              smt.setString(5, deposit);
+              smt.setString(6, email);
+              smt.setString(7, type);
+              smt.execute();
+              return 1;
+          }
+          else
+          {
+              return 0;
+          }
+      }
+      catch(Exception ex)
+      {
+          return 0;
+      }
+  }
+  public int insertcredit( String bacc, String today,String time,Integer amnt,String deposit2,String email2,String type2)
+  {
+      try{
+          if(isConnected())
+          {
+               String qur="INSERT into user_depwithhistory(account_no,date,time,amount2,deposit_or_withdrawl,email,ac_type)values(?,?,?,?,?,?,?)";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1, bacc);
+              smt.setString(2, today);
+              smt.setString(3, time);
+              smt.setInt(4, amnt);
+              smt.setString(5, deposit2);
+              smt.setString(6, email2);
+              smt.setString(7, type2);
+              smt.execute();
+              return 1;
+          }
+          else
+          {
+              return 0;
+          }
+      }
+      catch(Exception ex)
+      {
+          return 0;
+      }
+  }
 //    ResultSet checkUserRegister() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
@@ -753,4 +1006,9 @@ public class Databass {
     private String Time() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }  
+
+    ResultSet Exiting_user(String cif) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

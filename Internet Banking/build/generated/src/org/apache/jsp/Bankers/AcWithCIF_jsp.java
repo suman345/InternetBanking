@@ -70,9 +70,7 @@ public final class AcWithCIF_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/solid.js\"></script>\n");
       out.write("    <script defer src=\"https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js\" integrity=\"sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY\" crossorigin=\"anonymous\"></script>\n");
       out.write("</head>\n");
-      out.write("\n");
       out.write("<body>\n");
-      out.write("\n");
       out.write("    <div class=\"wrapper\">\n");
       out.write("        <!-- Sidebar  -->\n");
       out.write("        ");

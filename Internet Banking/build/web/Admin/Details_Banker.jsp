@@ -11,14 +11,14 @@
     <title>Internet Banking</title>
 
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="../Css/Admin_css/Adminhome.css">
 
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
 
 </head>
 
@@ -35,20 +35,8 @@
                  <div class="card">
            <table class="table table-hover">
               <thead>
-                 <tr>
-                   
-                   <th scope="col">Employe Id</th>
-                   <th scope="col">Branch Name</th>
-                   <th scope="col">Branch Code </th>
-                   <th scope="col">IFSE CODE</th>
-                   <th scope="col">Employe Name</th>
-                   <th scope="col">Email</th>
-                   <th scope="col">Phone NO</th>
-                   <th scope="col">Aadher NO</th>
-                   <th scope="col">Pan NO</th>
-                   <!--<th scope="col">Update</th>-->
-                 </tr>
-                 <tr>
+              <center><h1>Bankers Detalis</h1></center>
+                
                      <%
                          try{
                              String email=request.getParameter("Details").toString();
@@ -58,17 +46,43 @@
                                      
                          
                          %>
-                     <td><%= rs.getString("employee_id")%></td>
-                     <td><%= rs.getString("branch_name")%></td>
-                     <td><%= rs.getString("branch_code")%></td>
-                     <td><%= rs.getString("ifsc_code")%></td>
-                     <td><%= rs.getString("employe_name")%></td>
-                     <td><%= rs.getString("email")%></td>
-                     <td><%= rs.getString("moblie_number")%></td>
-                     <td><%= rs.getString("aadhar_no")%></td>
-                     <td><%= rs.getString("pan_number")%></td>
-                       <!--<td><a class="btn btn-sm btn-info" href="#"><i class="fas fa-info-circle"></i> Details</a> </td>-->
-                 </tr>    
+                 <tr>     
+                   <td scope="col">Employe Id</td>
+                   <td><%= rs.getString("employee_id")%></td>
+                 </tr>
+                 <tr>
+                   <td scope="col">Branch Name</td>
+                   <td><%= rs.getString("branch_name")%></td>
+                 </tr>
+                 <tr>
+                   <td scope="col">Branch Code </td>
+                   <td><%= rs.getString("branch_code")%></td>
+                 </tr>
+                 <tr>
+                   <td scope="col">IFSE CODE</td>
+                   <td><%= rs.getString("ifsc_code")%></td>
+                 </tr>
+                 <tr>
+                   <td scope="col">Employe Name</td>
+                   <td><%= rs.getString("employe_name")%></td>
+                 </tr>
+                 <tr>
+                   <td scope="col">Email</td>
+                   <td><%= rs.getString("email")%></td>
+                 </tr>
+                 <tr>
+                   <td scope="col">Phone NO</td>
+                   <td><%= rs.getString("moblie_number")%></td>
+                 </tr>
+                 <tr>
+                   <td scope="col">Aadher NO</td>
+                   <td><%= rs.getString("aadhar_no")%></td>
+                 </tr>
+                 <tr>
+                   <td scope="col">Pan NO</td>
+                   <td><%= rs.getString("pan_number")%></td>
+                   <!--<th scope="col">Update</th>-->
+                 </tr>  
                  <%
                      }
 }

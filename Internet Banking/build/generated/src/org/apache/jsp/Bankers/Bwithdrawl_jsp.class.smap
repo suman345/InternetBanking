@@ -1,0 +1,21 @@
+SMAP
+Bwithdrawl_jsp.java
+JSP
+*S JSP
+*F
++ 0 Bwithdrawl.jsp
+Bankers/Bwithdrawl.jsp
++ 1 Banker_sidepanel.jsp
+Bankers/pagefiles/Banker_sidepanel.jsp
++ 2 Banker_navbar.jsp
+Bankers/pagefiles/Banker_navbar.jsp
+*L
+1,15:50
+15,30:65
+45:95,3
+46,4:98
+1#1,118:102
+49#0,5:219
+1#2,24:224
+53#0,67:248
+*E

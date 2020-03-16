@@ -10,12 +10,16 @@ package com.internet_banking;
  * @author Sumanpc
  */
 public class User_doc1getser {
-    String cif,setid,adrno,setardno,addno,setphoto;
+    String cif,setid,adrno,setardno,addno,setphoto,setsing;
+
+    public String getSetsing() {
+        return setsing;
+    }
+
+    public void setSetsing(String setsing) {
+        this.setsing = setsing;
+    }
     long time;
-
-   
-    
-
     public long getTime() {
         return time;
     }

@@ -76,6 +76,14 @@
         <servlet-name>Change_password_user</servlet-name>
         <servlet-class>com.internet_banking.Change_password_user</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Existing_user</servlet-name>
+        <servlet-class>com.internet_banking.Existing_user</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Within_bank_transfer</servlet-name>
+        <servlet-class>com.internet_banking.Within_bank_transfer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Lets_Go</servlet-name>
         <url-pattern>/Lets_Go</url-pattern>
@@ -119,6 +127,14 @@
     <servlet-mapping>
         <servlet-name>Change_password_user</servlet-name>
         <url-pattern>/Change_password_user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Existing_user</servlet-name>
+        <url-pattern>/Existing_user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Within_bank_transfer</servlet-name>
+        <url-pattern>/Within_bank_transfer</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

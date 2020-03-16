@@ -43,7 +43,7 @@
                     </a>
                     <ul class="collapse list-unstyled" id="fnd">
                         <li>
-                            <a href="#" style="text-align: center;"><i class="fas fa-arrow-alt-circle-right"></i>Within Bank</a>
+                            <a href="FundWb.jsp" style="text-align: center;"><i class="fas fa-arrow-alt-circle-right"></i>Within Bank</a>
                         </li>
                         <li>
                             <a href="#" style="text-align: center;"><i class="fas fa-arrow-circle-left"></i>With Other Bank</a>
