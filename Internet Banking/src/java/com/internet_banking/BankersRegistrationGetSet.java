@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package com.internet_banking;
-
 /**
  *
  * @author Soumen-Pc
@@ -98,11 +97,7 @@ public class BankersRegistrationGetSet {
     public String getType() {
         return type;
     }
-
     public void setType(String type) {
         this.type = type;
-    }
-
-   
-     
+    }    
 }

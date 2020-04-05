@@ -1,4 +1,6 @@
- <%-- 
+ <%@page import="java.sql.ResultSet"%>
+<%@page import="com.internet_banking.Databass"%>
+<%-- 
     Document   : UserDashboardApp
     Created on : Feb 5, 2020, 1:49:57 PM
     Author     : Sumanpc
@@ -53,17 +55,29 @@
               </tr>
             </thead>
             <tbody>
-                 
+                 <%
+                     try{
+                         ResultSet rs= new Databass().userApprove();
+                         while(rs.next())
+                         {
+                     
+                 %>
                     
               <tr>
-                  <th scope="row">1</th>
-                  <td>suman</td>
+                  <th scope="row"><%=rs.getString("id")%></th>
+                  <td><%=rs.getString("first_name")%>&nbsp;<%=rs.getString("last_name")%></td>
                 <td>
                     <a class="btn btn-sm btn-danger" href="#"><i class="fas fa-trash-alt"></i> Reject</a>    
                 </td>
                 <td><a class="btn btn-sm btn-info" href="#"><i class="fas fa-info-circle"></i> Details</a> </td>
               </tr>  
-             
+             <%
+                 }
+                }
+                catch(Exception ex){
+
+                }
+             %>
             </tbody>
           </table> 
                     

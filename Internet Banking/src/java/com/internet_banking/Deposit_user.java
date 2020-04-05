@@ -66,10 +66,10 @@ public class Deposit_user extends HttpServlet {
                         int x=d1.insertdepositdetalis(acno,amount,today,time,deposit,email,actype);
                         if(x==1)
                         {
-                           /* String to=rs.getString("email");
+                            String to=rs.getString("email");
                             String subject="Deposit Ammount";
                             String mag="Dear Customer.. your credit Amount:" + amount+"Your Total Amount is"+amount3;
-                            Mailer.send(to, subject, mag);*/
+                            Mailer.send(to, subject, mag);
                             response.sendRedirect("Bankers/Banker_Home.jsp?msg=done");
                         }
                         else

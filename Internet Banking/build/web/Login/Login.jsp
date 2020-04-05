@@ -11,6 +11,20 @@
             {
                 err = 1;
             }
+            else
+            {
+                if(msg.equals("error2"))
+                {
+                    err = 2;
+                }
+                else
+                {
+                    if(msg.equals("error3"))
+                    {
+                        err=3;
+                    }
+                }
+            }
         }
     catch(Exception ex)
     {
@@ -25,7 +39,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
           <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -34,6 +47,14 @@
         function value()
         {
             document.getElementById('msg').innerHTML="The user id or password that you've entered is incorrect.";
+        }
+        function value2()
+        {
+            document.getElementById('msg').innerHTML="Username/Password can not Empty";
+        }
+        function value3()
+        {
+            document.getElementById('msg').innerHTML="You can't Login because Admin not Approve wait while of Time";
         }
          function gfg_Run() { 
                 document.addEventListener('contextmenu',  
@@ -46,7 +67,16 @@
     </script>
         <title>login</title>
     </head>
-    <body onload="<% if(err==1){out.print("value()");}%>" oncontextmenu="gfg_Run()">
+    <body onload="<% if(err==1){out.print("value()");}
+                      else
+                      {
+                         if(err==2){out.print("value2()");}
+                         else
+                         {
+                             if(err==3){out.print("value3()");}
+                         }
+                      }
+          %>" oncontextmenu="gfg_Run()">
        <nav class="navbar navbar-expand-lg">
   <a class="navbar-brand" href="#">NDBL Bank</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,15 +120,14 @@
           <div class="row">
               <div class="col-md-7">
                   <p id="forgetpw">Have you forgot your password ? >> <a href="../Forgot_password/Forgot.jsp" style="color: black; font-size: 14px; font-style: italic; font-synthesis: weight;">Click here</a></p> 
+<!--                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"> Open modal </button>-->
               </div>
               <div class="col-md-5 text-right">
-      <button type="submit" class="btn btn-lg " id="Loginbtn" onclick="return login_validation();">Login</button>
+      <button type="submit" class="btn btn-lg " id="Loginbtn" onclick="">Login</button>
       </div>
           </div>
       </div>
-      </form>
-      
-      
+      </form>   
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="../Java_Script/Login_js/Login.js"></script>

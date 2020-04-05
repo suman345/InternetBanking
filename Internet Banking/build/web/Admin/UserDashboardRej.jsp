@@ -4,6 +4,8 @@
     Author     : Sumanpc
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="com.internet_banking.Databass"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -49,16 +51,26 @@
               </tr>
             </thead>
             <tbody>
-             
+                <%
+                    try{
+                        ResultSet rs=new Databass().userReject();
+                        while(rs.next())
+                        {
+                        
+                    
+                 %>
               <tr>
-                  <th scope="row">1</th>
-                <td>soumen</td>
+                  <th scope="row"><%=rs.getString("id") %></th>
+                  <td><%=rs.getString("first_name") %>&nbsp;<%=rs.getString("last_name") %></td>
                 <td>
                     <a class="btn btn-sm btn-primary" href="#"><i class="far fa-edit"></i> Approve</a>
                 </td>
                 <td><a class="btn btn-sm btn-info" href="#"><i class="fas fa-info-circle"></i> Details</a> </td>
               </tr>
-             
+             <%
+                    }
+                   }catch(Exception ex){}   
+             %>
             </tbody>
           </table>
 

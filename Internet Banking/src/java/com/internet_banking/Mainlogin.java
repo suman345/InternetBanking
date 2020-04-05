@@ -98,40 +98,54 @@ public class Mainlogin extends HttpServlet {
         String userid,password,type;
            userid=request.getParameter("email");
            password=request.getParameter("psw");
-            ResultSet rs =new Databass().CheckLogin(userid,password);
-            if(rs.next())
-            {
-               type=rs.getString("type");
-               HttpSession session=request.getSession();
-               session.setAttribute("bankerid",userid); 
-               session.setAttribute("type",type);
-               if(type.equalsIgnoreCase("Banker"))
-               {
-                   response.sendRedirect("Bankers/Banker_Home.jsp");
-               }
-               else
-               {
-                   if(type.equalsIgnoreCase("Admin"))
+           if(userid.isEmpty() || password.isEmpty())
+           {
+                response.sendRedirect("Login/Login.jsp?msg=error2");
+           }
+           else
+           {
+                ResultSet rs =new Databass().CheckLogin(userid,password);
+                if(rs.next())
+                {
+                   String isActive=rs.getString("isActive");
+                   if(isActive.equals("0"))
                    {
-                       response.sendRedirect("Admin/Adminhome.jsp");
-                   }    
+                      response.sendRedirect("Login/Login.jsp?msg=error3");
+                   }
                    else
                    {
-                        if(type.equalsIgnoreCase("User"))
+                        type=rs.getString("type");
+                        HttpSession session=request.getSession();
+                        session.setAttribute("bankerid",userid); 
+                        session.setAttribute("type",type);
+                        if(type.equalsIgnoreCase("Banker"))
                         {
-                              response.sendRedirect("User/User_Home.jsp");
-                           //out.println("fffffffff");
-                       } 
+                            response.sendRedirect("Bankers/Banker_Home.jsp");
+                        }
+                        else
+                        {
+                            if(type.equalsIgnoreCase("Admin"))
+                            {
+                                response.sendRedirect("Admin/Adminhome.jsp");
+                            }    
+                            else
+                            {
+                                 if(type.equalsIgnoreCase("User"))
+                                 {
+                                       response.sendRedirect("User/User_Home.jsp");
+                                    //out.println("fffffffff");
+                                 }
+                            }
+                        }
                    }
+                }
+                else
+                {
+                    response.sendRedirect("Login/Login.jsp?msg=error1");
+                }
                }
-            }
-            else
-            {
-                response.sendRedirect("Login/Login.jsp?msg=error1");
-            }
-           }
-        
-        
+        }
+
     }
 
 

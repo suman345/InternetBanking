@@ -25,10 +25,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="../Java_Script/Forget_password/forgetvalidation.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
  <script>
     function value()
@@ -50,9 +50,7 @@
                   <p>You can reset your password here.</p>
                   <p id="err"style="color:red;"></p>
                   <div class="panel-body">
-    
                       <form  action="../ForgotPassword" id="register-form" role="form" autocomplete="off" class="form" method="post">
-    
                       <div class="form-group">
                         <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
@@ -60,12 +58,11 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
+                          <input name="recover-submit" lass="btn btn-lg btn-primary btn-block" value="Send Password" type="submit" onclick="return forgetval();">
                       </div>
                       
                       <input type="hidden" class="hide" name="token" id="token" value=""> 
                     </form>
-    
                   </div>
                 </div>
               </div>

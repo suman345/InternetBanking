@@ -1,0 +1,18 @@
+SMAP
+Detalis_005fUser_jsp.java
+JSP
+*S JSP
+*F
++ 0 Detalis_User.jsp
+Admin/Detalis_User.jsp
++ 1 Admin_sidepanel.jsp
+Admin/pagefiles/Admin_sidepanel.jsp
++ 2 Admin_navbar.jsp
+Admin/pagefiles/Admin_navbar.jsp
+*L
+5,30:52
+1#1,49:82
+34#0,5:130
+1#2,29:135
+38#0,36:164
+*E

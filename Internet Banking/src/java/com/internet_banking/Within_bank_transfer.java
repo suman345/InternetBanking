@@ -37,12 +37,13 @@ public class Within_bank_transfer extends HttpServlet {
         PrintWriter out = response.getWriter();
         try{
             /* TODO output your page here. You may use following sample code. */
-           String oacc,bacc;
-                   int amnt;
+           String oacc,bacc,passw;
+           int amnt;
            oacc=request.getParameter("oacc");
            bacc=request.getParameter("bacc");
            //amnt=request.getParameter("amnt");
            amnt = Integer.parseInt(request.getParameter("amnt"));
+           passw=request.getParameter("passw");
            Date date = new Date();
            SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy");
            String today=sdf.format(date);
@@ -50,71 +51,63 @@ public class Within_bank_transfer extends HttpServlet {
            String time=sdf.format(date);
             String deposit=("Dabit");
             String deposit2=("Credit");
-            
-           ResultSet rs= new Databass().accno_detalis(oacc);
-           {
+           int a1=0,ta=0;
+           ResultSet rs= new Databass().accno_detaliswith_pass(oacc,passw);
                if(rs.next())
                {
                    String email=rs.getString("email");
                    String type= rs.getString("ac_type");
                  // out.print(email);
                    //out.print(type);
-                   int a1=rs.getInt("amount");
-                   int ta=a1-amnt;
-                    //out.print(ta);
-                    int x=new Databass().with_in_Btransfer(ta,oacc);
+                    a1=rs.getInt("amount");
+                    int a2 = a1;
+                    if(a2>=amnt)
                     {
-                       if(x==1)
-                       {
-                          // out.print("done");
-                           int x1 =new Databass().insertdabit(oacc,today,time,amnt,deposit,email,type);
-                           if(x1==1)
-                           {
-                               //out.print("success");
-                               response.sendRedirect("User/FundWb.jsp?msg=done");
-                           }
-                       }
-                    }
-                    ResultSet rs1= new Databass().accno_detalis(bacc);
-                    {
-                        if(rs1.next())
-                        {
-                            String email2=rs1.getString("email");
-                            String type2= rs1.getString("ac_type");
-                           // out.print(email2);
-                           // out.print(type2);
-                            int a=rs1.getInt("amount");
-                            int ta1=a+amnt;
-                            //out.print(ta1);
-                            int y=new Databass().with_in_Btransfer(ta1,bacc);
-                            if(y==1)
+                         ta=a1-amnt;
+                         out.println(ta);
+                          ResultSet rs1= new Databass().accno_detalis(bacc);
+                            if(rs1.next())
+                                 {
+                                     String email2=rs1.getString("email");
+                                     String type2= rs1.getString("ac_type");
+                                     int a=rs1.getInt("amount");
+                                    int ta1=a+amnt;
+                                     int y=new Databass().with_in_Btransfer(ta1,bacc);
+                                     if(y==1)
+                                     {
+                                         int y1= new Databass().insertcredit(bacc,today,time,amnt,deposit2,email2,type2);
+                                         if(y1==1)
+                                        {
+                                             int x=new Databass().with_in_Btransfer(ta,oacc);
+                                             if(x==1)
+                                             {
+                                                 int x1=new Databass().insertdabit(oacc,today,time,amnt,deposit,email,type);
+                                                 if(x1==1)
+                                                 {
+                                                     response.sendRedirect("User/FundWb.jsp?msg=done");
+                                                 }
+                                            }
+                                         }     
+                                     }
+                                 }
+                            else                        
                             {
-                                //out.print("done1");
-                                int y1= new Databass().insertcredit(bacc,today,time,amnt,deposit2,email2,type2);
-                                if(y1==1)
-                                {
-                                    //out.print("kjhgfd");
-                                    response.sendRedirect("User/FundWb.jsp?msg=done1");
-                                }
+                                response.sendRedirect("User/FundWb.jsp?err=2");
                             }
-                        }
-                        else
-                        {
-                            response.sendRedirect("User/FundWb.jsp?msg=error");
-                        }
                     }
-                    
-               }
-               else
+                    else
+                    {
+                         response.sendRedirect("User/FundWb.jsp?err=31");
+                    }                  
+                }
+                else
                {
-                    response.sendRedirect("User/FundWb.jsp?msg=error");
+                   response.sendRedirect("User/FundWb.jsp?err=3");
                }
-           }
-           
         }
         catch(Exception ex)
         {
-            
+            out.print(ex);
         }
     }
 

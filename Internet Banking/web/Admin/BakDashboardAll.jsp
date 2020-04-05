@@ -5,7 +5,6 @@
          <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <title>Internet Banking</title>
 <!--     Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" >
@@ -20,9 +19,7 @@
 <!--     Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
-        
-   
-     <script>
+    <script>
       function Activate(val)
         {
             
@@ -36,10 +33,10 @@
             window.location=loc;
         }
         
-        function Details(val)
-        {    var loc="Details_Banker.jsp?Details="+val;
-            window.location=loc; 
-        }
+//        function Details(val)
+//        {    var loc="Details_Banker.jsp?Details="+val;
+//            window.location=loc; 
+//        }
     </script>
     </head>
     <body>
@@ -84,22 +81,41 @@
                                         <button class="btn btn-sm btn-danger" onClick="Reject('<%=rs.getString("username")%>')"><i class="fas fa-trash-alt"></i> Reject</button>
                                     <%}%>
                                   </td>        
-                                  <td><button class="btn btn-sm btn-info" onclick="Details('<%=rs.getString("username")%>')"><i class="fas fa-info-circle"></i> Details</button> </td>     
+                                  <td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#val" onclick="Details('<%=rs.getString("username")%>')"><i class="fas fa-info-circle"></i> Details</button> </td>     
                   
               </tr>
-              <%
-                 
+              <%                
                   }
                 }catch(Exception a)
                 {}
                %>
             </tbody>
           </table>
-    </div>
+           </div>
         </div>
-        </div>
-   
-    
+      </div>
+                    <div class="modal" tabindex="-1" role="dialog" id="val">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Banker Detlis</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <center>
+                              <table id="tdval">
+                              </table>                    
+                                </center>
+                            </div>
+                            <div class="modal-footer">
+                            
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
   <!--jQuery CDN - Slim version (=without AJAX)--> 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
      <!--Popper.JS--> 
@@ -123,7 +139,22 @@
 			$('#suman').DataTable();
 		} );
 	</script>
-    
-    
+        <script>
+           function Details(eid)
+           { 
+               
+           //  alert(eid);
+                $.ajax({
+                    type:'post',
+                    url:'Details_Banker.jsp',
+                    data:{email:eid},          
+                    success:function(f){  
+                      
+                    console.log(f);
+                    $('#tdval').html(f);
+                }
+                });
+            }
+        </script>
     </body>
 </html>   

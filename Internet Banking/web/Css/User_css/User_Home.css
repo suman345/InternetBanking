@@ -1,7 +1,6 @@
 /*
     DEMO STYLE
 */
-
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
     font-family: 'Poppins', sans-serif;
@@ -15,7 +14,6 @@ p {
     line-height: 1.7em;
     color: #000aa3;
 }
-
 a,
 a:hover,
 a:focus {
@@ -259,25 +257,17 @@ a.article:hover {
         display: none;
     }
 }
-
-
-
 .btn {
     
 }
-
-
-
 #sidebarCollapse {
     color: #fff;
     background-color: #000aa3;
     box-shadow: 3px 3px 3px rgba(235, 235, 235, 0.8);
 }
-
 .fa-wallet {
     
 }
-
 .main-secction {
     border-radius: 50px;
 }

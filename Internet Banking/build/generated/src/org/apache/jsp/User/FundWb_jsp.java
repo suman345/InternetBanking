@@ -54,6 +54,7 @@ public final class FundWb_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("<html>\n");
+      out.write("\n");
       out.write("<head>\n");
       out.write("    <meta charset=\"utf-8\">\n");
       out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
@@ -62,14 +63,11 @@ public final class FundWb_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <title>Internet_Banking</title>\n");
       out.write("    \n");
       out.write("    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css\">\n");
-      out.write("    \n");
-      out.write("      <link rel=\"stylesheet\" href=\"../Css/User_css/FundWb.css\">\n");
+      out.write("    <link rel=\"stylesheet\" href=\"../Css/User_css/FundWb.css\">\n");
       out.write("    <link rel=\"stylesheet\" href=\"../Css/User_css/User_Home.css\">    \n");
-      out.write("    \n");
-      out.write("   \n");
       out.write("    <script defer src=\"https://use.fontawesome.com/releases/v5.0.13/js/solid.js\"></script>\n");
       out.write("    <script defer src=\"https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js\"></script>   \n");
-      out.write("   \n");
+      out.write("    \n");
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("    <div class=\"wrapper\">\n");
@@ -216,7 +214,7 @@ public final class FundWb_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </script>\n");
       out.write("</body>\n");
       out.write("\n");
-      out.write("</html>\n");
+      out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

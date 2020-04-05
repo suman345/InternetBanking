@@ -230,7 +230,7 @@ public class Databass {
         {
             if(isConnected())
             {
-                String qur="SELECT * FROM `login_details` WHERE `username`=? and `password` =? and `isActive`='1'";
+                String qur="SELECT * FROM `login_details` WHERE `username`=? and `password` =?";
                 smt=conn.prepareStatement(qur);
                 smt.setString(1, userid);
                 smt.setString(2,password);
@@ -294,7 +294,7 @@ public class Databass {
         }
     }
     //This function used by Details_Banker.jsp 
-    public ResultSet Banker_Details(String email)
+     public ResultSet Banker_Details(String email)
     {
         try{
             if(isConnected())
@@ -315,7 +315,7 @@ public class Databass {
             return null;
         }
     }    
-    public ResultSet BankerApprove()
+     public ResultSet BankerApprove()
     {
         try{
             if(isConnected())
@@ -342,6 +342,46 @@ public class Databass {
             if(isConnected())
             {
                 String qur="SELECT b.id,b.employe_name FROM banker_register b,login_details l WHERE l.username= b.email AND l.isActive=0";
+                smt=conn.prepareStatement(qur);
+                rs=smt.executeQuery();
+                return rs;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        catch(Exception ex)
+        {
+            return null;
+        }
+    }
+    public ResultSet userApprove()
+    {
+        try{
+            if(isConnected())
+            {
+                String qur="SELECT b.id,b.first_name,b.last_name FROM new_user_registration b,login_details l WHERE l.username= b.email AND l.isActive=1";
+                smt=conn.prepareStatement(qur);
+                rs=smt.executeQuery();
+                return rs;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        catch(Exception ex)
+        {
+            return null;
+        }
+    }
+    public ResultSet userReject()
+    {
+        try{
+            if(isConnected())
+            {
+                String qur="SELECT b.id,b.first_name,b.last_name FROM new_user_registration b,login_details l WHERE l.username= b.email AND l.isActive=0";
                 smt=conn.prepareStatement(qur);
                 rs=smt.executeQuery();
                 return rs;
@@ -398,6 +438,7 @@ public class Databass {
 //            return 0;
         }
     }
+    //This function calling by UserDashboardAll.jsp
     public ResultSet userDetail()
     {
         try{
@@ -899,7 +940,7 @@ public class Databass {
           return 0;
       }
   }
-  public ResultSet accno_detalis(String acc)
+    public ResultSet accno_detalis(String acc)
   {
       try{
           if(isConnected())
@@ -908,6 +949,29 @@ public class Databass {
               String qur="select a.*, b.* from new_user_registration a,user_document b where a.cif_no = b.cif_no and b.account_no=?";
               smt=conn.prepareStatement(qur);
               smt.setString(1, acc);
+              rs=smt.executeQuery();
+              return rs;
+          }
+          else
+          {
+              return null;
+          }
+      }
+      catch(Exception ex){
+          return null;
+      }
+  }
+  public ResultSet accno_detaliswith_pass(String acc,String passw)
+  {
+      try{
+          if(isConnected())
+          {
+             //String qur="SELECT * FROM `user_document` WHERE account_no=?";
+              String qur="SELECT * from new_user_registration a,user_document b,login_details c WHERE a.cif_no=b.cif_no AND a.email=c.username AND b.account_no=? AND c.password=?";
+              smt=conn.prepareStatement(qur);
+              smt.setString(1, acc);
+              smt.setString(2, passw);
+              //smt.setInt(3, amou);
               rs=smt.executeQuery();
               return rs;
           }
@@ -995,6 +1059,27 @@ public class Databass {
       {
           return 0;
       }
+  }
+  public ResultSet userDetailsAdmin(String email)
+  {
+     try{
+         if(isConnected())
+         {
+             String qur="SELECT * FROM new_user_registration a, user_document b WHERE a.cif_no=b.cif_no and a.email=?";
+             smt=conn.prepareStatement(qur);
+             smt.setString(1,email);
+             rs=smt.executeQuery();
+             return rs;
+         }
+         else
+         {
+             return null;
+         }
+     } 
+     catch(Exception ex)
+     {
+         return null;
+     }
   }
 //    ResultSet checkUserRegister() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

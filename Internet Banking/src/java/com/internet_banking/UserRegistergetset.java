@@ -15,7 +15,6 @@ public class UserRegistergetset {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -26,7 +25,7 @@ public class UserRegistergetset {
 
     public void setType(String type) {
         this.type = type;
-    }
+    } 
 
     public String getCifno() {
         return cifno;

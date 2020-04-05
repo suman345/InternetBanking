@@ -71,8 +71,7 @@
                             <div class="modal-body">
                                 <div id="mod"></div>
                             </div>
-                            <div class="modal-footer">
-                            
+                            <div class="modal-footer">  
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                           </div>
@@ -144,7 +143,7 @@
          var html='';
           $.ajax({
               type:'post',
-              url:'http://localhost:8084/Internet_Banking/Bankers/Bwithdrawl_ajax.jsp',
+              url:'Bwithdrawl_ajax.jsp',
               data:{acno:acno},
               success:function(f){
                //console.log(f);

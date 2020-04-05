@@ -40,8 +40,9 @@
         }
         
 //        function Details(val)
-//        {    var loc="Details_Banker.jsp?Details="+val;
-//            window.location=loc; 
+//        {   
+//           // var loc="Detalis_User.jsp?Details="+val;
+//            window.location=loc;    
 //        }
     </script>
     </head>
@@ -88,8 +89,8 @@
                                         <button class="btn btn-sm btn-danger" onClick="Reject('<%=rs.getString("username")%>')"><i class="fas fa-trash-alt"></i> Reject</button>
                                         <%}%>
                                   </td>        
-                                  <td><button class="btn btn-sm btn-info" onclick=""><i class="fas fa-info-circle"></i> Details</button> </td>     
-                  
+                                  <td><button class="btn btn-sm btn-info" data-toggle="modal"data-target="#val"  onclick="Details('<%=rs.getString("username")%>')"><i class="fas fa-info-circle"></i> Details</button></td>
+                                  
               </tr>
               <%
                   }
@@ -98,19 +99,22 @@
 
                 }
                   %>
+                 
             </tbody>
           </table>
     </div>
         </div>
         </div>
-   
+    <div class="modal" tabindex="-1" role="dialog" id="val">
+                        
+    </div>
     
   <!--jQuery CDN - Slim version (=without AJAX)--> 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
      <!--Popper.JS--> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
      <!--Bootstrap JS--> 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -128,7 +132,21 @@
 			$('#suman').DataTable();
 		} );
 	</script>
+        <script>
+         function Details(eid){ 
+           //  alert(eid);
+          $.ajax({
+              type:'post',
+              url:'Detalis_User.jsp',
+              data:{email:eid},          
+              success:function(f){                 
+               console.log(f);
+               //$('.modal-title').html('gud');
+              $('#val').html(f);
+          }
+          });
+      }
     
-   
+        </script>
     </body>
 </html>
